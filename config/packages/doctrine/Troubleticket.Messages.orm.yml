@@ -1,0 +1,65 @@
+App\Entity\Troubleticket\Messages:
+    type: entity
+    table: troubleticket.messages
+    indexes:
+        IDX_EFE2F4D64BD2A4C0:
+            columns:
+                - report_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        message:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        userId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: user_id
+        referenceRepository:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: reference_repository
+        referenceId:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: reference_id
+        viewedBy:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viewed_by
+    manyToOne:
+        report:
+            targetEntity: App\Entity\Troubleticket\Reports
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                report_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

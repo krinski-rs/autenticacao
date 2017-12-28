@@ -1,0 +1,211 @@
+App\Entity\Troubleticket\Subcases:
+    type: entity
+    table: troubleticket.subcases
+    indexes:
+        IDX_524806114BD2A4C0:
+            columns:
+                - report_id
+    uniqueConstraints:
+        subcases_code:
+            columns:
+                - code
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        team:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        forecast:
+            type: time
+            nullable: true
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        type:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        code:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        listOfMaterials:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: list_of_materials
+        idActivity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_activity
+        activityType:
+            type: string
+            nullable: true
+            length: 12
+            options:
+                fixed: false
+            column: activity_type
+        provider:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        maintainer:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        maintainerContact:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: maintainer_contact
+        phone:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        ticket:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        element:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        cause:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        problem:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        solution:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        comment:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        openingUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: opening_user
+        closingUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: closing_user
+        tmeCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: tme_counter
+        pausedCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: paused_counter
+        thirdTeamCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: third_team_counter
+        displacementCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: displacement_counter
+        infraCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: infra_counter
+        fieldCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: field_counter
+        clientCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: client_counter
+        tmrCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: tmr_counter
+        initialDate:
+            type: datetime
+            nullable: true
+            column: initial_date
+        finalDate:
+            type: datetime
+            nullable: true
+            column: final_date
+    manyToOne:
+        report:
+            targetEntity: App\Entity\Troubleticket\Reports
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                report_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

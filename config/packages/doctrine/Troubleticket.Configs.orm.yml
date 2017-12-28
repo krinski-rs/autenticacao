@@ -1,0 +1,21 @@
+App\Entity\Troubleticket\Configs:
+    type: entity
+    table: troubleticket.configs
+    id:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        value:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

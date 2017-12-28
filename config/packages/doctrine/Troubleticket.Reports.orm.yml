@@ -1,0 +1,387 @@
+App\Entity\Troubleticket\Reports:
+    type: entity
+    table: troubleticket.reports
+    indexes:
+        IDX_7F2C1B2C727ACA70:
+            columns:
+                - parent_id
+    uniqueConstraints:
+        reports_code:
+            columns:
+                - code
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        circuitId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: circuit_id
+        designation:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        initialDate:
+            type: datetime
+            nullable: false
+            column: initial_date
+        finalDate:
+            type: datetime
+            nullable: true
+            column: final_date
+        type:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        stack:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        operatorReportIdentifier:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: operator_report_identifier
+        responsible:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        requesterName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: requester_name
+        requesterPhone:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: requester_phone
+        requesterEmail:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: requester_email
+        cause:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        failure:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        failureLocal:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: failure_local
+        problem:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        solution:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        tmeCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: tme_counter
+        pausedCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: paused_counter
+        solvedCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: solved_counter
+        tmrCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: tmr_counter
+        nocCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: noc_counter
+        sn1Counter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: sn1_counter
+        sn2Counter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: sn2_counter
+        cocCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: coc_counter
+        displacementCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: displacement_counter
+        infraCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: infra_counter
+        fieldCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: field_counter
+        clientCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: client_counter
+        sn1:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        sn2:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        code:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        closeReason:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: close_reason
+        symptom:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        stretch:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        sn3:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        sn3Counter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: sn3_counter
+        voz:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        vozCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: voz_counter
+        lastUpdate:
+            type: datetime
+            nullable: true
+            column: last_update
+        issue:
+            type: decimal
+            nullable: false
+            precision: 1
+            scale: 0
+            options:
+                default: '0'
+        createdByClient:
+            type: boolean
+            nullable: false
+            column: created_by_client
+        serviceChannel:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: service_channel
+        closedSymptom:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: closed_symptom
+        structure:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        element:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        popId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: pop_id
+        providerId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: provider_id
+        incident:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        createdBySystem:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: created_by_system
+        mantainerCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: mantainer_counter
+        firstCombat:
+            type: datetime
+            nullable: true
+            column: first_combat
+        reopenDate:
+            type: datetime
+            nullable: true
+            column: reopen_date
+        attendanceProtocol:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: attendance_protocol
+        openingClassification:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: opening_classification
+        serviceType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: service_type
+        monitoringCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: monitoring_counter
+        openingUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: opening_user
+        closingUser:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: closing_user
+        biCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: bi_counter
+    manyToOne:
+        parent:
+            targetEntity: App\Entity\Troubleticket\Reports
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parent_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,50 @@
+post_ba:
+    path: /ba
+    controller: 'App\Controller\Troubleticket\ReportsController::postReport'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_ba:
+    path: /ba/{idBA}
+    controller: 'App\Controller\Troubleticket\ReportsController::getReport'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        idBA: '\d+'
+        
+list_ba:
+    path: /ba
+    controller: 'App\Controller\Troubleticket\ReportsController::getReports'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_ba:
+    path: /ba/{idBA}
+    controller: 'App\Controller\Troubleticket\ReportsController::deleteReport'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        idBA: '\d+'
+        
+put_ba:
+    path: /ba/{idBA}
+    controller: 'App\Controller\Troubleticket\ReportsController::putReport'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        idBA: '\d+'
+        
+patch_ba:
+    path: /ba/{idBA}
+    controller: 'App\Controller\Troubleticket\ReportsController::patchReport'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        idBA: '\d+'
+        

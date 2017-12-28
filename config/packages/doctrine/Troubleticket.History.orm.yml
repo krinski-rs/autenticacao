@@ -1,0 +1,76 @@
+App\Entity\Troubleticket\History:
+    type: entity
+    table: troubleticket.history
+    indexes:
+        IDX_A989CC224BD2A4C0:
+            columns:
+                - report_id
+        IDX_A989CC2284727C3A:
+            columns:
+                - subcase_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        comment:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        date:
+            type: datetime
+            nullable: false
+        reason:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        supportLevel:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: support_level
+        reportStatus:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: report_status
+        usuario:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        report:
+            targetEntity: App\Entity\Troubleticket\Reports
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                report_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        subcase:
+            targetEntity: App\Entity\Troubleticket\Subcases
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                subcase_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,68 @@
+App\Entity\Troubleticket\TimeCounters:
+    type: entity
+    table: troubleticket.time_counters
+    indexes:
+        IDX_126D8D1F4BD2A4C0:
+            columns:
+                - report_id
+        IDX_126D8D1F84727C3A:
+            columns:
+                - subcase_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        initialDate:
+            type: datetime
+            nullable: false
+            column: initial_date
+        finalDate:
+            type: datetime
+            nullable: true
+            column: final_date
+        stack:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        subcaseStatus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: subcase_status
+        reportStatus:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+            column: report_status
+    manyToOne:
+        report:
+            targetEntity: App\Entity\Troubleticket\Reports
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                report_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        subcase:
+            targetEntity: App\Entity\Troubleticket\Subcases
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                subcase_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

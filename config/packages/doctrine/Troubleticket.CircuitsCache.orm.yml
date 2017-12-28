@@ -1,0 +1,52 @@
+App\Entity\Troubleticket\CircuitsCache:
+    type: entity
+    table: troubleticket.circuits_cache
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        designation:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        finalClient:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: final_client
+        ufPontaA:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: uf_ponta_a
+        clientId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: client_id
+        sla:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        city:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

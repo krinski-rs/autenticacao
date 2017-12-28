@@ -1,0 +1,3 @@
+reports:
+    prefix: /reports
+    resource: './reports/routes.yaml'
