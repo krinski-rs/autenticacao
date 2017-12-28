@@ -5,7 +5,7 @@ namespace App\Entity\Autorizacao;
 /**
  * Usuarios
  */
-abstract class Usuarios
+class Usuarios
 {
     /**
      * @var int

@@ -29,3 +29,8 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 300 }
+
+
+    rest_authenticator:
+          class: App\Security\Authenticators\RestAuthenticator
+          arguments: ["@doctrine"]

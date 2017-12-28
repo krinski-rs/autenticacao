@@ -5,11 +5,16 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use App\Entity\Autorizacao\Usuarios;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 
-class RestUser extends Usuarios implements UserInterface, EquatableInterface
+class RestUser implements UserInterface, EquatableInterface
 {
-
+    private $salt = NULL;
+    private $username = NULL;
+    private $password = NULL;
+    
     public function eraseCredentials()
-    {}
+    {
+        
+    }
 
     public function getRoles()
     {
@@ -35,6 +40,36 @@ class RestUser extends Usuarios implements UserInterface, EquatableInterface
         }
         
         return TRUE;
+    }
+    
+    public function getPassword()
+    {
+        return $this->password;
+    }
+    
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+    
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+    
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+    
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
     }
 }
 

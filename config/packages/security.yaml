@@ -17,7 +17,7 @@ security:
             logout: ~
             guard:
                 authenticators:
-                    - App\Security\Authenticators\RestAuthenticator            
+                    - rest_authenticator
     access_control:
         - { path: ^/troubleticket, roles: ROLE_REST_USER }
             # activate different ways to authenticate
