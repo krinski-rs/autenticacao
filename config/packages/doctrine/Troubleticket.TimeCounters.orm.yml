@@ -45,12 +45,12 @@ App\Entity\Troubleticket\TimeCounters:
                 default: '0'
             column: report_status
     manyToOne:
-        report:
+        reports:
             targetEntity: App\Entity\Troubleticket\Reports
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: timeCounters
             joinColumns:
                 report_id:
                     referencedColumnName: id

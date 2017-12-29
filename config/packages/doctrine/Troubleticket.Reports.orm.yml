@@ -1,6 +1,14 @@
 App\Entity\Troubleticket\Reports:
     type: entity
     table: troubleticket.reports
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: type
+        type: integer
+    discriminatorMap:
+        1: App\Entity\Troubleticket\ReportsBA
+        2: App\Entity\Troubleticket\ReportsBI
+        3: App\Entity\Troubleticket\ReportsBS
     indexes:
         IDX_7F2C1B2C727ACA70:
             columns:
@@ -39,11 +47,6 @@ App\Entity\Troubleticket\Reports:
             type: datetime
             nullable: true
             column: final_date
-        type:
-            type: integer
-            nullable: false
-            options:
-                unsigned: false
         description:
             type: text
             nullable: true
@@ -367,21 +370,19 @@ App\Entity\Troubleticket\Reports:
             options:
                 unsigned: false
             column: closing_user
-        biCounter:
-            type: integer
-            nullable: true
-            options:
-                unsigned: false
-            column: bi_counter
-    manyToOne:
-        parent:
-            targetEntity: App\Entity\Troubleticket\Reports
-            cascade: {  }
+    oneToMany:
+        timeCounters:
+            targetEntity: App\Entity\Troubleticket\TimeCounters
+            cascade:
+                - persist
+                - merge
             fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                parent_id:
-                    referencedColumnName: id
-            orphanRemoval: false
+            mappedBy: reports
+        subcases:
+            targetEntity: App\Entity\Troubleticket\Subcases
+            cascade:
+                - persist
+                - merge
+            fetch: LAZY
+            mappedBy: reports
     lifecycleCallbacks: {  }

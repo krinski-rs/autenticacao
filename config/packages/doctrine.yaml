@@ -14,11 +14,6 @@ doctrine:
                 server_version: '8.4'
                 charset: UTF8
                 url: '%env(resolve:DATABASE_VOGEL)%'
-            teste:
-                driver: 'pdo_pgsql'
-                server_version: '8.4'
-                charset: UTF8
-                url: '%env(resolve:DATABASE_VOGEL)%'
     orm:
         entity_manager:  teste
         auto_generate_proxy_classes: '%kernel.debug%'

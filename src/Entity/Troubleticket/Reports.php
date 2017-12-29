@@ -5,7 +5,7 @@ namespace App\Entity\Troubleticket;
 /**
  * Reports
  */
-class Reports
+abstract class Reports
 {
     /**
      * @var int
@@ -31,11 +31,6 @@ class Reports
      * @var \DateTime|null
      */
     private $finalDate;
-
-    /**
-     * @var int
-     */
-    private $type;
 
     /**
      * @var string|null
@@ -313,16 +308,23 @@ class Reports
     private $closingUser;
 
     /**
-     * @var int|null
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @access private
      */
-    private $biCounter;
+    private $timeCounters;
 
     /**
-     * @var \App\Entity\Troubleticket\Reports
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     * @access private
      */
-    private $parent;
-
-
+    private $subcases;
+    
+    public function __construct()
+    {
+        $this->timeCounters = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->subcases = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id.
      *
@@ -427,30 +429,6 @@ class Reports
     public function getFinalDate()
     {
         return $this->finalDate;
-    }
-
-    /**
-     * Set type.
-     *
-     * @param int $type
-     *
-     * @return Reports
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type.
-     *
-     * @return int
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -1772,52 +1750,72 @@ class Reports
     {
         return $this->closingUser;
     }
-
+    
     /**
-     * Set biCounter.
+     * Add timeCounters
      *
-     * @param int|null $biCounter
+     * @param \App\Entity\Troubleticket\TimeCounters $timeCounters
      *
      * @return Reports
      */
-    public function setBiCounter($biCounter = null)
+    public function addTimeCounters(\App\Entity\Troubleticket\TimeCounters $timeCounters)
     {
-        $this->biCounter = $biCounter;
-
+        $this->timeCounters[] = $timeCounters;
+        
         return $this;
     }
-
+    
     /**
-     * Get biCounter.
+     * Remove timeCounters
      *
-     * @return int|null
+     * @param \App\Entity\Troubleticket\TimeCounters $timeCounters
      */
-    public function getBiCounter()
+    public function removeTimeCounters(\App\Entity\Troubleticket\TimeCounters $timeCounters)
     {
-        return $this->biCounter;
+        $this->timeCounters->removeElement($timeCounters);
     }
-
+    
     /**
-     * Set parent.
+     * Get timeCounters
      *
-     * @param \App\Entity\Troubleticket\Reports|null $parent
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTimeCounters()
+    {
+        return $this->timeCounters;
+    }
+    
+    /**
+     * Add subcases
+     *
+     * @param \App\Entity\Troubleticket\Subcases $subcases
      *
      * @return Reports
      */
-    public function setParent(\App\Entity\Troubleticket\Reports $parent = null)
+    public function addSubcases(\App\Entity\Troubleticket\Subcases $subcases)
     {
-        $this->parent = $parent;
-
+        $this->subcases[] = $subcases;
+        
         return $this;
     }
-
+    
     /**
-     * Get parent.
+     * Remove subcases
      *
-     * @return \App\Entity\Troubleticket\Reports|null
+     * @param \App\Entity\Troubleticket\Subcases $subcases
      */
-    public function getParent()
+    public function removeSubcases(\App\Entity\Troubleticket\Subcases $subcases)
     {
-        return $this->parent;
+        $this->subcases->removeElement($subcases);
+    }
+    
+    /**
+     * Get subcases
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubcases()
+    {
+        return $this->subcases;
     }
 }

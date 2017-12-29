@@ -1,6 +1,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    locale: 'en'
 
 services:
     # default configuration for services in *this* file
@@ -30,7 +31,15 @@ services:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 300 }
 
-
     rest_authenticator:
           class: App\Security\Authenticators\RestAuthenticator
           arguments: ["@doctrine"]
+          
+    App\Service\Troubleticke\Reports:
+          public: false
+          arguments: ["@doctrine"]
+          
+    troubleticket.reports:
+          alias: App\Service\Troubleticke\Reports
+          public: true
+          

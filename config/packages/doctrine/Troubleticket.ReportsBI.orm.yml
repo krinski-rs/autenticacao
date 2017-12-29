@@ -1,0 +1,18 @@
+App\Entity\Troubleticket\ReportsBI:
+    type: entity
+    attributeOverride:
+        biCounter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: bi_counter
+    oneToMany:
+        reportsBA:
+            targetEntity: App\Entity\Troubleticket\ReportsBA
+            cascade:
+                - persist
+                - merge
+            fetch: LAZY
+            mappedBy: reportBI
+    lifecycleCallbacks: {  }

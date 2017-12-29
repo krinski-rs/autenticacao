@@ -1,0 +1,3 @@
+App\Entity\Troubleticket\ReportsBS:
+    type: entity
+    lifecycleCallbacks: {  }

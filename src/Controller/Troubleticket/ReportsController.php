@@ -7,12 +7,20 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
+use App\Service\Troubleticke\Reports as ReportService;
 
 class ReportsController extends Controller
 {
     
     public function postReport(Request $objRequest)
     {
+        $objTroubleTickeReports = $this->get('troubleticket.reports');
+        if(!$objTroubleTickeReports instanceof ReportService){
+            return new JsonResponse(['message'=> 'Class "App\Service\Troubleticke\Reports not found."'], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+        
+        $objTroubleTickeReports->create($objRequest);
+        
         return new JsonResponse(['id'=>['postReport']], Response::HTTP_OK);
     }
     

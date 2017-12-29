@@ -1,0 +1,14 @@
+App\Entity\Troubleticket\ReportsBA:
+    type: entity
+    manyToOne:
+        reportsBI:
+            targetEntity: App\Entity\Troubleticket\ReportsBI
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: reportsBA
+            joinColumns:
+                parent_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -198,12 +198,12 @@ App\Entity\Troubleticket\Subcases:
             nullable: true
             column: final_date
     manyToOne:
-        report:
+        reports:
             targetEntity: App\Entity\Troubleticket\Reports
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: subcases
             joinColumns:
                 report_id:
                     referencedColumnName: id
