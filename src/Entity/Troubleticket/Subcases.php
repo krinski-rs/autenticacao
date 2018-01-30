@@ -170,7 +170,7 @@ class Subcases
     /**
      * @var \App\Entity\Troubleticket\Reports
      */
-    private $report;
+    private $reports;
 
 
     /**
@@ -928,26 +928,26 @@ class Subcases
     }
 
     /**
-     * Set report.
+     * Set reports.
      *
-     * @param \App\Entity\Troubleticket\Reports|null $report
+     * @param \App\Entity\Troubleticket\Reports|null $reports
      *
      * @return Subcases
      */
-    public function setReport(\App\Entity\Troubleticket\Reports $report = null)
+    public function setReport(\App\Entity\Troubleticket\Reports $reports = null)
     {
-        $this->report = $report;
+        $this->reports = $reports;
 
         return $this;
     }
 
     /**
-     * Get report.
+     * Get reports.
      *
      * @return \App\Entity\Troubleticket\Reports|null
      */
     public function getReport()
     {
-        return $this->report;
+        return $this->reports;
     }
 }

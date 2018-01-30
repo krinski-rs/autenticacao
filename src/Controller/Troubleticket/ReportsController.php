@@ -14,14 +14,20 @@ class ReportsController extends Controller
     
     public function postReport(Request $objRequest)
     {
-        $objTroubleTickeReports = $this->get('troubleticket.reports');
-        if(!$objTroubleTickeReports instanceof ReportService){
-            return new JsonResponse(['message'=> 'Class "App\Service\Troubleticke\Reports not found."'], Response::HTTP_INTERNAL_SERVER_ERROR);
+        try {
+            $objTroubleTickeReports = $this->get('troubleticket.reports');
+            if(!$objTroubleTickeReports instanceof ReportService){
+                return new JsonResponse(['message'=> 'Class "App\Service\Troubleticke\Reports not found."'], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
+            
+            $objTroubleTickeReports->create($objRequest);
+            
+            return new JsonResponse(['id'=>['postReport']], Response::HTTP_OK);
+        } catch (\RuntimeException $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
+        } catch (\Exception $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
-        
-        $objTroubleTickeReports->create($objRequest);
-        
-        return new JsonResponse(['id'=>['postReport']], Response::HTTP_OK);
     }
     
     public function getReport(int $idBA)

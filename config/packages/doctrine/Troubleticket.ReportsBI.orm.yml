@@ -1,6 +1,6 @@
 App\Entity\Troubleticket\ReportsBI:
     type: entity
-    attributeOverride:
+    fields:
         biCounter:
             type: integer
             nullable: true

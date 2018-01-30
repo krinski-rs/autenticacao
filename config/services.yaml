@@ -37,7 +37,7 @@ services:
           
     App\Service\Troubleticke\Reports:
           public: false
-          arguments: ["@doctrine"]
+          arguments: ["@doctrine", "@validator"]
           
     troubleticket.reports:
           alias: App\Service\Troubleticke\Reports
