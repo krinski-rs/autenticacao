@@ -213,7 +213,7 @@ abstract class Reports
     private $lastUpdate;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $issue = '0';
 
@@ -258,7 +258,7 @@ abstract class Reports
     private $incident;
 
     /**
-     * @var int|null
+     * @var bool
      */
     private $createdBySystem;
 
@@ -1514,7 +1514,7 @@ abstract class Reports
     /**
      * Set createdBySystem.
      *
-     * @param int|null $createdBySystem
+     * @param bool $createdBySystem
      *
      * @return Reports
      */
@@ -1528,7 +1528,7 @@ abstract class Reports
     /**
      * Get createdBySystem.
      *
-     * @return int|null
+     * @return bool
      */
     public function getCreatedBySystem()
     {

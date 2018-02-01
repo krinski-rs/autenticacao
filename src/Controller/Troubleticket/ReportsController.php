@@ -21,6 +21,7 @@ class ReportsController extends Controller
             }
             
             $objTroubleTickeReports->create($objRequest);
+            $objReports = $objTroubleTickeReports->save();
             
             return new JsonResponse(['id'=>['postReport']], Response::HTTP_OK);
         } catch (\RuntimeException $e) {

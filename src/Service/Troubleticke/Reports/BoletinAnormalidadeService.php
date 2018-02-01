@@ -3,8 +3,10 @@ namespace App\Service\Troubleticke\Reports;
 
 use Doctrine\ORM\EntityManager;
 use App\Entity\Troubleticket\ReportsBA;
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Troubleticket\Reports;
 
-class BoletinAtendimentoService
+class BoletinAnormalidadeService
 {
     private $objEntityManager = NULL;
     private $objReportsBA = NULL;
@@ -27,25 +29,26 @@ class BoletinAtendimentoService
     {
         $this->objEntityManager->persist($this->objReportsBA);
         $this->objEntityManager->flush();
+        return $this->objReportsBA;
     }
     
-    public function create()
+    public function create(Request $objRequest)
     {
         try {
             $this->objReportsBA = new ReportsBA();
             $this->objReportsBA->setAttendanceProtocol();
             $this->objReportsBA->setCause();
-            $this->objReportsBA->setCircuitId($circuitId);
+            $this->objReportsBA->setCircuitId($objRequest->get('circuitId'));
             $this->objReportsBA->setClientCounter();
             $this->objReportsBA->setClosedSymptom();
             $this->objReportsBA->setCloseReason();
             $this->objReportsBA->setClosingUser();
             $this->objReportsBA->setCocCounter();
-            $this->objReportsBA->setCode($code);
-            $this->objReportsBA->setCreatedByClient($createdByClient);
+            $this->objReportsBA->setCode('2');
+            $this->objReportsBA->setCreatedByClient($objRequest->get('createdByClient'));
             $this->objReportsBA->setCreatedBySystem();
             $this->objReportsBA->setDescription();
-            $this->objReportsBA->setDesignation($designation);
+            $this->objReportsBA->setDesignation($objRequest->get('designation'));
             $this->objReportsBA->setDisplacementCounter();
             $this->objReportsBA->setElement();
             $this->objReportsBA->setFailure();
@@ -55,8 +58,8 @@ class BoletinAtendimentoService
             $this->objReportsBA->setFirstCombat();
             $this->objReportsBA->setIncident();
             $this->objReportsBA->setInfraCounter();
-            $this->objReportsBA->setInitialDate($initialDate);
-            $this->objReportsBA->setIssue($issue);
+            $this->objReportsBA->setInitialDate(new \DateTime());
+            $this->objReportsBA->setIssue('');
             $this->objReportsBA->setLastUpdate();
             $this->objReportsBA->setMantainerCounter();
             $this->objReportsBA->setMonitoringCounter();
@@ -69,7 +72,7 @@ class BoletinAtendimentoService
             $this->objReportsBA->setProblem();
             $this->objReportsBA->setProviderId();
             $this->objReportsBA->setReopenDate();
-            $this->objReportsBA->setReportsBI($reportsBI);
+//             $this->objReportsBA->setReportsBI(NULL);
             $this->objReportsBA->setRequesterEmail();
             $this->objReportsBA->setRequesterName();
             $this->objReportsBA->setRequesterPhone();
@@ -84,8 +87,8 @@ class BoletinAtendimentoService
             $this->objReportsBA->setSn3Counter();
             $this->objReportsBA->setSolution();
             $this->objReportsBA->setSolvedCounter();
-            $this->objReportsBA->setStack($stack);
-            $this->objReportsBA->setStatus($status);
+            $this->objReportsBA->setStack($objRequest->get('stack'));
+            $this->objReportsBA->setStatus($objRequest->get('status'));
             $this->objReportsBA->setStretch();
             $this->objReportsBA->setStructure();
             $this->objReportsBA->setSymptom();
@@ -96,6 +99,7 @@ class BoletinAtendimentoService
         } catch (\Exception $e) {
             throw $e;
         }
+        return $this;
     }
 }
 

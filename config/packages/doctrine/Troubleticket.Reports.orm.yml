@@ -261,10 +261,8 @@ App\Entity\Troubleticket\Reports:
             nullable: true
             column: last_update
         issue:
-            type: decimal
-            nullable: false
-            precision: 1
-            scale: 0
+            type: string
+            nullable: true
             options:
                 default: '0'
         createdByClient:
@@ -314,7 +312,7 @@ App\Entity\Troubleticket\Reports:
             options:
                 fixed: false
         createdBySystem:
-            type: integer
+            type: boolean
             nullable: true
             options:
                 unsigned: false
