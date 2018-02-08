@@ -1,0 +1,50 @@
+post_prospect:
+    path: /
+    controller: 'App\Controller\Comercial\ProspectController::postProspect'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_prospect:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ProspectController::getProspect'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_prospect:
+    path: /
+    controller: 'App\Controller\Comercial\ProspectController::getProspects'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_prospect:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ProspectController::deleteProspect'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_prospect:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ProspectController::putProspect'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_prospect:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ProspectController::patchProspect'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

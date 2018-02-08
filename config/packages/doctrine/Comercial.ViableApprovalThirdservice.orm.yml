@@ -1,0 +1,46 @@
+App\Entity\Comercial\ViableApprovalThirdservice:
+    type: entity
+    table: comercial.viable_approval_thirdservice
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        viableApprovalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: viable_approval_id
+        thirdserviceId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: thirdservice_id
+        quantity:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        total:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        price:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        viable:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

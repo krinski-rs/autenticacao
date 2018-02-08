@@ -1,0 +1,65 @@
+App\Entity\Comercial\ProposalResponsible:
+    type: entity
+    table: comercial.proposal_responsible
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_id
+        typeId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: type_id
+        name:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        cpf:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        birthday:
+            type: date
+            nullable: true
+        phone:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        cellphone:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        cadUsersId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: cad_users_id
+    lifecycleCallbacks: {  }

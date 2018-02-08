@@ -1,0 +1,49 @@
+App\Entity\Comercial\ProposalStatus:
+    type: entity
+    table: comercial.proposal_status
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        valproposalId:
+            type: boolean
+            nullable: true
+            column: valproposal_id
+        physicalProposalPendency:
+            type: boolean
+            nullable: true
+            column: physical_proposal_pendency
+        dateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: date_record
+        dateUpdate:
+            type: datetime
+            nullable: true
+            column: date_update
+        motivoPropostaInvalida:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: motivo_proposta_invalida
+        pendingSeller:
+            type: boolean
+            nullable: true
+            column: pending_seller
+        idReason:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_reason
+    lifecycleCallbacks: {  }

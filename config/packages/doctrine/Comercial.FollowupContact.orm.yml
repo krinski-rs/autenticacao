@@ -1,0 +1,32 @@
+App\Entity\Comercial\FollowupContact:
+    type: entity
+    table: comercial.followup_contact
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        sistechId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: sistech_id
+        chanceContactId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_contact_id
+        followupId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: followup_id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,50 @@
+App\Entity\Comercial\ProposalBenefits:
+    type: entity
+    table: comercial.proposal_benefits
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: proposal_id
+        investmentValue:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: investment_value
+        monthlyBonusValue:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: monthly_bonus_value
+        activationBonusValue:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: activation_bonus_value
+        permanenceDeadline:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: permanence_deadline
+        permanenceUnit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: permanence_unit
+    lifecycleCallbacks: {  }

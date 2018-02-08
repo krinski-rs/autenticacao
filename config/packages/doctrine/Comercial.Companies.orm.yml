@@ -1,0 +1,25 @@
+App\Entity\Comercial\Companies:
+    type: entity
+    table: comercial.companies
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        spid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

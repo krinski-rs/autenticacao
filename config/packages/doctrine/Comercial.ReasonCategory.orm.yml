@@ -1,0 +1,27 @@
+App\Entity\Comercial\ReasonCategory:
+    type: entity
+    table: comercial.reason_category
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        category:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        status:
+            type: boolean
+            nullable: false
+        dateRecord:
+            type: time
+            nullable: true
+            column: date_record
+    lifecycleCallbacks: {  }

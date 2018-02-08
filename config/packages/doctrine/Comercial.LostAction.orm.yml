@@ -1,0 +1,32 @@
+App\Entity\Comercial\LostAction:
+    type: entity
+    table: comercial.lost_action
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        parentId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: parent_id
+        visible:
+            type: boolean
+            nullable: true
+        select:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

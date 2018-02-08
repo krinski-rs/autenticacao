@@ -1,0 +1,42 @@
+App\Entity\Comercial\ProposalTimeCounters:
+    type: entity
+    table: comercial.proposal_time_counters
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_id
+        initialDate:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: initial_date
+        finalDate:
+            type: datetime
+            nullable: true
+            column: final_date
+        proposalTimeCountersStacksId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_time_counters_stacks_id
+        proposalProtocolStatusId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: proposal_protocol_status_id
+    lifecycleCallbacks: {  }

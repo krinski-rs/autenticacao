@@ -1,0 +1,27 @@
+App\Entity\Comercial\NumberImported:
+    type: entity
+    table: comercial.number_imported
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        numberImported:
+            type: string
+            nullable: true
+            length: 15
+            options:
+                fixed: false
+            column: number_imported
+        ddd:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

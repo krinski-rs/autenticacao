@@ -1,0 +1,50 @@
+post_tag:
+    path: /
+    controller: 'App\Controller\Comercial\TagController::postTag'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_tag:
+    path: /{id}
+    controller: 'App\Controller\Comercial\TagController::getTag'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_tag:
+    path: /
+    controller: 'App\Controller\Comercial\TagController::getTags'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_tag:
+    path: /{id}
+    controller: 'App\Controller\Comercial\TagController::deleteTag'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_tag:
+    path: /{id}
+    controller: 'App\Controller\Comercial\TagController::putTag'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_tag:
+    path: /{id}
+    controller: 'App\Controller\Comercial\TagController::patchTag'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

@@ -1,0 +1,39 @@
+App\Entity\Comercial\TeamState:
+    type: entity
+    table: comercial.team_state
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        teamId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: team_id
+        teamstateUf:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+            column: teamstate_uf
+        teamstateDateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: teamstate_date_record
+        teamstateActive:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+            column: teamstate_active
+    lifecycleCallbacks: {  }

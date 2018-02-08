@@ -1,0 +1,199 @@
+App\Entity\Comercial\ProposalProtocol:
+    type: entity
+    table: comercial.proposal_protocol
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_id
+        client:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        salesman:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        activationValue:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: activation_value
+        monthlyPayment:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: monthly_payment
+        dateRecord:
+            type: datetime
+            nullable: false
+            column: date_record
+        nameProtocol:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+            column: name_protocol
+        dateProposal:
+            type: date
+            nullable: true
+            column: date_proposal
+        service:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        dateAssignment:
+            type: datetime
+            nullable: true
+            column: date_assignment
+        delta:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        prevMonthlyPayment:
+            type: string
+            nullable: true
+            length: 2044
+            options:
+                fixed: false
+            column: prev_monthly_payment
+        prevDelta:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: prev_delta
+        prevSpeed:
+            type: string
+            nullable: true
+            length: 2044
+            options:
+                fixed: false
+            column: prev_speed
+        activationRule:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: activation_rule
+        estimatedDate:
+            type: datetime
+            nullable: true
+            column: estimated_date
+        datePayment:
+            type: datetime
+            nullable: true
+            column: date_payment
+        fare:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        activationDate:
+            type: date
+            nullable: true
+            column: activation_date
+        revenueFilialId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: revenue_filial_id
+        businessRuleId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: business_rule_id
+        hasEarlyFare:
+            type: boolean
+            nullable: true
+            column: has_early_fare
+        earlyFareDueDate:
+            type: date
+            nullable: true
+            column: early_fare_due_date
+        fareQuoteQuantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fare_quote_quantity
+        farePeriodicity:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+            column: fare_periodicity
+        fareDueDay:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fare_due_day
+        fareBankId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fare_bank_id
+        fareDeliveryTypeId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fare_delivery_type_id
+        hasGracePeriod:
+            type: boolean
+            nullable: true
+            column: has_grace_period
+        gracePeriodNumber:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+            column: grace_period_number
+        gracePeriodType:
+            type: string
+            nullable: true
+            length: 60
+            options:
+                fixed: false
+            column: grace_period_type
+        comment:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,29 @@
+App\Entity\Comercial\TypeThirdservice:
+    type: entity
+    table: comercial.type_thirdservice
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+        acronyn:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

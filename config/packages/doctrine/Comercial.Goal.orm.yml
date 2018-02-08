@@ -1,0 +1,32 @@
+App\Entity\Comercial\Goal:
+    type: entity
+    table: comercial.goal
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        function:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        goalTypeId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: goal_type_id
+    lifecycleCallbacks: {  }

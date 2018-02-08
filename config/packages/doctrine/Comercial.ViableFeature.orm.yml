@@ -1,0 +1,37 @@
+App\Entity\Comercial\ViableFeature:
+    type: entity
+    table: comercial.viable_feature
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        featureattributeId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: featureattribute_id
+        viableId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viable_id
+        quantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        viableFeatureId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viable_feature_id
+    lifecycleCallbacks: {  }

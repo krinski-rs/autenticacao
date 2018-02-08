@@ -1,0 +1,38 @@
+App\Entity\Comercial\FavoriteAddress:
+    type: entity
+    table: comercial.favorite_address
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        viableId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: viable_id
+        walletId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: wallet_id
+        name:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        prospectId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: prospect_id
+    lifecycleCallbacks: {  }

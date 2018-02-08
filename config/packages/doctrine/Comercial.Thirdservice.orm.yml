@@ -1,0 +1,43 @@
+App\Entity\Comercial\Thirdservice:
+    type: entity
+    table: comercial.thirdservice
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        dateRecord:
+            type: datetime
+            nullable: false
+            column: date_record
+        cost:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        userRegistrant:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: user_registrant
+        active:
+            type: boolean
+            nullable: false
+        type:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

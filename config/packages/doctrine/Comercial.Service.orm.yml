@@ -1,0 +1,43 @@
+App\Entity\Comercial\Service:
+    type: entity
+    table: comercial.service
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        servicoContrato:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: servico_contrato
+        multipleCircuits:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+            column: multiple_circuits
+        locationService:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: location_service
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,44 @@
+App\Entity\Comercial\BankInformation:
+    type: entity
+    table: comercial.bank_information
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        cnpj:
+            type: string
+            nullable: false
+            length: 14
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        number:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: false
+        agency:
+            type: string
+            nullable: true
+            length: 4
+            options:
+                fixed: false
+        account:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

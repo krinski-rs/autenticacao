@@ -1,0 +1,43 @@
+App\Entity\Comercial\Wallet:
+    type: entity
+    table: comercial.wallet
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idEv:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_ev
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        dateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: date_record
+        dateUpdate:
+            type: datetime
+            nullable: true
+            column: date_update
+    oneToMany:
+        prospect:
+            targetEntity: App\Entity\Comercial\Prospect
+            cascade:
+                - persist
+                - merge
+            fetch: LAZY
+            mappedBy: wallet
+    lifecycleCallbacks: {  }

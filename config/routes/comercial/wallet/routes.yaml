@@ -1,0 +1,50 @@
+post_wallet:
+    path: /
+    controller: 'App\Controller\Comercial\WalletController::postWallet'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_wallet:
+    path: /{id}
+    controller: 'App\Controller\Comercial\WalletController::getWallet'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_wallet:
+    path: /
+    controller: 'App\Controller\Comercial\WalletController::getWallets'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_wallet:
+    path: /{id}
+    controller: 'App\Controller\Comercial\WalletController::deleteWallet'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_wallet:
+    path: /{id}
+    controller: 'App\Controller\Comercial\WalletController::putWallet'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_wallet:
+    path: /{id}
+    controller: 'App\Controller\Comercial\WalletController::patchWallet'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

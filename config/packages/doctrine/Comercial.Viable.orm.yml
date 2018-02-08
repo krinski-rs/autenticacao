@@ -1,0 +1,277 @@
+App\Entity\Comercial\Viable:
+    type: entity
+    table: comercial.viable
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        lat:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        lon:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        cep:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        steet:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        number:
+            type: string
+            nullable: true
+            length: 2044
+            options:
+                fixed: false
+        complement:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        viable:
+            type: boolean
+            nullable: true
+            options:
+                default: false
+        hash:
+            type: string
+            nullable: true
+            length: 65
+            options:
+                fixed: false
+        uf:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: false
+        city:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        active:
+            type: boolean
+            nullable: true
+        viableStatus:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viable_status
+        dateRecord:
+            type: datetime
+            nullable: true
+            column: date_record
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        chanceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_id
+        speedType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: speed_type
+        minActivation:
+            type: decimal
+            nullable: true
+            precision: 12
+            scale: 2
+            column: min_activation
+        minMonthly:
+            type: decimal
+            nullable: true
+            precision: 12
+            scale: 2
+            column: min_monthly
+        district:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        speed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        interface:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        coords:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        shadowLpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: shadow_lpu_id
+        priceZone:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: price_zone
+        fiberDistance:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: fiber_distance
+        fiberUnit:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+            column: fiber_unit
+        contCodigoid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: cont_codigoid
+        nextViableId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: next_viable_id
+        latlonManual:
+            type: boolean
+            nullable: true
+            column: latlon_manual
+        daysDeadline:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: days_deadline
+        skipEngineer:
+            type: boolean
+            nullable: true
+            column: skip_engineer
+        requestContractDeadline:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: request_contract_deadline
+        requestContractDeadlineUnit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: request_contract_deadline_unit
+        interfaceReal:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: interface_real
+        comment:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        trocaEndereco:
+            type: boolean
+            nullable: true
+            column: troca_endereco
+        pair:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        capilares:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        commentPresale:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: comment_presale
+        totalFo:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: total_fo
+        idGroupSva:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_group_sva
+        networkType:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: network_type
+        idDatacenter:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_datacenter
+        espacoDatacenter:
+            type: boolean
+            nullable: true
+            options:
+                default: false
+            column: espaco_datacenter
+        deliveryPlace:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: delivery_place
+        commentVoice:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: comment_voice
+    lifecycleCallbacks: {  }

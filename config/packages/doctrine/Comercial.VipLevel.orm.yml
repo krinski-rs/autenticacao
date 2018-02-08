@@ -1,0 +1,25 @@
+App\Entity\Comercial\VipLevel:
+    type: entity
+    table: comercial.vip_level
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        level:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        name:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

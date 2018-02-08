@@ -76,7 +76,7 @@ class Reports
                 "min" => 10,
                 "max" => 25,
                 "minMessage" => "O campo deve ter pelo menos {{ limit }} caracteres.",
-                "maxMessage" => "O campo não pode ser maior do que {{limite}} caracteres."
+                "maxMessage" => "O campo não pode ser maior do que {{ limit }} caracteres."
             ]
         );
         
@@ -140,7 +140,6 @@ class Reports
             $objArrayIterator->rewind();
             $mensagem = "";
             while($objArrayIterator->valid()){
-                \Doctrine\Common\Util\Debug::dump($objArrayIterator->current()->getPropertyPath());
                 if($objArrayIterator->key()){
                     $mensagem.= "\n";
                 }

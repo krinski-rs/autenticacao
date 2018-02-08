@@ -1,0 +1,20 @@
+App\Entity\Comercial\EvChange:
+    type: entity
+    table: comercial.ev_change
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProspect:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_prospect
+    lifecycleCallbacks: {  }

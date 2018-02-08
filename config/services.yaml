@@ -43,3 +43,43 @@ services:
           alias: App\Service\Troubleticke\Reports
           public: true
           
+    App\Service\Comercial\Service:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    comercial.service:
+          alias: App\Service\Comercial\Service
+          public: true
+          
+    App\Service\Comercial\Tag:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    comercial.tag:
+          alias: App\Service\Comercial\Tag
+          public: true
+          
+    App\Service\Comercial\Prospect:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    comercial.prospect:
+          alias: App\Service\Comercial\Prospect
+          public: true
+          
+    App\Service\Comercial\Wallet:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    comercial.wallet:
+          alias: App\Service\Comercial\Wallet
+          public: true
+          
+    App\Service\Comercial\Chance:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    comercial.chance:
+          alias: App\Service\Comercial\Chance
+          public: true
+          

@@ -1,0 +1,32 @@
+App\Entity\Comercial\Agreement:
+    type: entity
+    table: comercial.agreement
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        ip:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        agreed:
+            type: boolean
+            nullable: false
+        date:
+            type: datetime
+            nullable: false
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_id
+    lifecycleCallbacks: {  }

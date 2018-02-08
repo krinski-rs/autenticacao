@@ -1,0 +1,61 @@
+App\Entity\Comercial\ProposalAddress:
+    type: entity
+    table: comercial.proposal_address
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        uf:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        city:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        cep:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        street:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        number:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        complement:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        proposalId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: proposal_id
+        district:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

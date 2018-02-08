@@ -1,0 +1,43 @@
+App\Entity\Comercial\LostChance:
+    type: entity
+    table: comercial.lost_chance
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        chanceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_id
+        lostActionId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lost_action_id
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+        wallet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

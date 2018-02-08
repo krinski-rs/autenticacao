@@ -1,0 +1,32 @@
+App\Entity\Comercial\Requirement:
+    type: entity
+    table: comercial.requirement
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        lumaId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: luma_id
+        unit:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

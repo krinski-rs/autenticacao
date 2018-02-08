@@ -1,0 +1,134 @@
+App\Entity\Comercial\Chance:
+    type: entity
+    table: comercial.chance
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idProspect:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_prospect
+        idProduct:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_product
+        temperature:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        active:
+            type: boolean
+            nullable: false
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        dateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: date_record
+        dateUpdate:
+            type: datetime
+            nullable: true
+            column: date_update
+        idFollowup:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_followup
+        idLastProposal:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_last_proposal
+        serviceType:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: service_type
+        idContract:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_contract
+        closingValue:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: closing_value
+        closingDate:
+            type: datetime
+            nullable: true
+            column: closing_date
+    manyToOne:
+        prospect:
+            targetEntity: App\Entity\Comercial\Prospect
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: chance
+            joinColumns:
+                id_prospect:
+                    referencedColumnName: id
+            orphanRemoval: false
+        service:
+            targetEntity: App\Entity\Comercial\Service
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_product:
+                    referencedColumnName: id
+            orphanRemoval: false
+        chanceType:
+            targetEntity: App\Entity\Comercial\ChanceType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                service_type:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        chanceContact:
+            targetEntity: App\Entity\Comercial\ChanceContact
+            cascade:
+                - persist
+                - merge
+                - remove
+            fetch: LAZY
+            mappedBy: chance
+            orphanRemoval: false
+        chanceIndication:
+            targetEntity: App\Entity\Comercial\ChanceIndication
+            cascade:
+                - persist
+                - merge
+                - remove
+            fetch: LAZY
+            mappedBy: chance
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

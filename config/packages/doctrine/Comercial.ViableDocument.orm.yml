@@ -1,0 +1,52 @@
+App\Entity\Comercial\ViableDocument:
+    type: entity
+    table: comercial.viable_document
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        viableId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: viable_id
+        documentId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: document_id
+        author:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        active:
+            type: boolean
+            nullable: false
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+        filename:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        path:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,36 @@
+App\Entity\Comercial\ChanceInactiveLog:
+    type: entity
+    table: comercial.chance_inactive_log
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        chanceInactiveId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_inactive_id
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+        user:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        ev:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

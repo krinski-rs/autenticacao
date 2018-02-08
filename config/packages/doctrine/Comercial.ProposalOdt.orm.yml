@@ -1,0 +1,38 @@
+App\Entity\Comercial\ProposalOdt:
+    type: entity
+    table: comercial.proposal_odt
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        filename:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        serviceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: service_id
+        dateRecord:
+            type: datetime
+            nullable: true
+            column: date_record
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        active:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

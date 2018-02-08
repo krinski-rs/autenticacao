@@ -1,0 +1,73 @@
+App\Entity\Comercial\Datacenter:
+    type: entity
+    table: comercial.datacenter
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        nome:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        uf:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        cidade:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        lat:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        lon:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        cep:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        logradouro:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        numero:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        complemento:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        bairro:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

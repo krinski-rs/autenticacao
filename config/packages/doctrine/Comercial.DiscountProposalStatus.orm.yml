@@ -1,0 +1,48 @@
+App\Entity\Comercial\DiscountProposalStatus:
+    type: entity
+    table: comercial.discount_proposal_status
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        deprCodigoid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: depr_codigoid
+        userId:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+            column: user_id
+        alcada:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        dateInc:
+            type: datetime
+            nullable: false
+            column: date_inc
+        status:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+                default: G
+        motivo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

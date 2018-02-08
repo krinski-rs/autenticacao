@@ -1,0 +1,95 @@
+App\Entity\Comercial\DiscountProposal:
+    type: entity
+    table: comercial.discount_proposal
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        userId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: user_id
+        dateInc:
+            type: datetime
+            nullable: false
+            column: date_inc
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_id
+        tipo:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        descativval:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        descativporc:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        descmensval:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        descmensporc:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        motivo:
+            type: string
+            nullable: false
+            length: 500
+            options:
+                fixed: false
+        status:
+            type: boolean
+            nullable: true
+        valorativAtual:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            column: valorativ_atual
+        valorativProposto:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            column: valorativ_proposto
+        valormensAtual:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            column: valormens_atual
+        valormensProposto:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            column: valormens_proposto
+        proposalApproved:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: proposal_approved
+    lifecycleCallbacks: {  }

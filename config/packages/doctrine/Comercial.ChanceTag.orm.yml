@@ -1,0 +1,19 @@
+App\Entity\Comercial\ChanceTag:
+    type: entity
+    table: comercial.chance_tag
+    id:
+        idChance:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_chance
+        idTag:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_tag
+    lifecycleCallbacks: {  }

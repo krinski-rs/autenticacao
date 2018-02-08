@@ -1,0 +1,49 @@
+App\Entity\Comercial\ProposalFeature:
+    type: entity
+    table: comercial.proposal_feature
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        atrivaloCodigoid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: atrivalo_codigoid
+        value:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        activationFare:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: activation_fare
+        monthlyCost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: monthly_cost
+        proposalId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: proposal_id
+        quantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,94 @@
+App\Entity\Comercial\Prospect:
+    type: entity
+    table: comercial.prospect
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idWallet:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_wallet
+        idTag:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_tag
+        idCliente:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_cliente
+        dateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: date_record
+        dateUpdate:
+            type: datetime
+            nullable: true
+            column: date_update
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        clientName:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+            column: client_name
+        cid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        fakeName:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+            column: fake_name
+    manyToOne:
+        wallet:
+            targetEntity: App\Entity\Comercial\Wallet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: prospect
+            joinColumns:
+                id_wallet:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tag:
+            targetEntity: App\Entity\Comercial\Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_tag:
+                    referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+        chance:
+            targetEntity: App\Entity\Comercial\Chance
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: prospect
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

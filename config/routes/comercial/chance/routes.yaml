@@ -1,0 +1,50 @@
+post_chance:
+    path: /
+    controller: 'App\Controller\Comercial\ChanceController::postChance'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_chance:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ChanceController::getChance'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_chance:
+    path: /
+    controller: 'App\Controller\Comercial\ChanceController::getChances'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_chance:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ChanceController::deleteChance'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_chance:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ChanceController::putChance'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_chance:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ChanceController::patchChance'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

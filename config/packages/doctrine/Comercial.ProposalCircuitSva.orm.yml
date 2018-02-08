@@ -1,0 +1,42 @@
+App\Entity\Comercial\ProposalCircuitSva:
+    type: entity
+    table: comercial.proposal_circuit_sva
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalCircuitId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_circuit_id
+        svaId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: sva_id
+        ativationFare:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: ativation_fare
+        monthlyCost:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: monthly_cost
+    lifecycleCallbacks: {  }

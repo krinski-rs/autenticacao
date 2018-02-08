@@ -1,0 +1,52 @@
+App\Entity\Comercial\ProposalDocument:
+    type: entity
+    table: comercial.proposal_document
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_id
+        proposalOdtId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: proposal_odt_id
+        odtFile:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: odt_file
+        pdfFile:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: pdf_file
+        userId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: user_id
+        dateinc:
+            type: datetime
+            nullable: true
+        dategen:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks: {  }

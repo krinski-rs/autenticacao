@@ -1,0 +1,54 @@
+App\Entity\Comercial\ChanceIndication:
+    type: entity
+    table: comercial.chance_indication
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        type:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        who:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        idChance:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_chance
+        warn:
+            type: boolean
+            nullable: true
+            options:
+                default: false
+    manyToOne:
+        chance:
+            targetEntity: App\Entity\Comercial\Chance
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_chance:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

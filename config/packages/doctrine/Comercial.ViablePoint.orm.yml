@@ -1,0 +1,19 @@
+App\Entity\Comercial\ViablePoint:
+    type: entity
+    table: comercial.viable_point
+    id:
+        viableId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: viable_id
+        pointId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: point_id
+    lifecycleCallbacks: {  }

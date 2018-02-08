@@ -1,0 +1,117 @@
+App\Entity\Comercial\ProposalCircuit:
+    type: entity
+    table: comercial.proposal_circuit
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: proposal_id
+        viableId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viable_id
+        discount:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        speed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        speedUnit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: speed_unit
+        activationFare:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: activation_fare
+        activationFareNoDiscount:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: activation_fare_no_discount
+        monthlyCost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: monthly_cost
+        monthlyCostNoDiscount:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: monthly_cost_no_discount
+        attribs:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        percentualLpuDiscount:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: percentual_lpu_discount
+        svaActivationFareDiscount:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: sva_activation_fare_discount
+        svaMonthlyCostDiscount:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: sva_monthly_cost_discount
+        svaMaxPercentualDiscount:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: sva_max_percentual_discount
+        finalClient:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: final_client
+    lifecycleCallbacks: {  }

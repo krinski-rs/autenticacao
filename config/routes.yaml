@@ -4,3 +4,7 @@
 troubleticket:
     prefix: /troubleticket
     resource: './routes/troubleticket/routes.yaml'
+comercial:
+    prefix: /comercial
+    resource: './routes/comercial/routes.yaml'
+    

@@ -1,0 +1,71 @@
+App\Entity\Comercial\ViableApproval:
+    type: entity
+    table: comercial.viable_approval
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        dateRecord:
+            type: datetime
+            nullable: true
+            column: date_record
+        viableId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viable_id
+        approved:
+            type: boolean
+            nullable: true
+        obs:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        prevViableStatus:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: prev_viable_status
+        attachment:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        deadlineApproval:
+            type: datetime
+            nullable: false
+            column: deadline_approval
+        dateApproval:
+            type: datetime
+            nullable: true
+            column: date_approval
+        minAtivationDays:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: min_ativation_days
+        networkType:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: network_type
+    lifecycleCallbacks: {  }

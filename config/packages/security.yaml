@@ -20,6 +20,7 @@ security:
                     - rest_authenticator
     access_control:
         - { path: ^/troubleticket, roles: ROLE_REST_USER }
+        - { path: ^/comercial, roles: ROLE_REST_USER }
             # activate different ways to authenticate
 
             # http_basic: ~

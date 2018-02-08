@@ -1,0 +1,42 @@
+App\Entity\Comercial\Ranking:
+    type: entity
+    table: comercial.ranking
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        points:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        team:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+        total:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        ciclo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }

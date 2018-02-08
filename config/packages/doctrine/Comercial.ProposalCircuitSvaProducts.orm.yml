@@ -1,0 +1,43 @@
+App\Entity\Comercial\ProposalCircuitSvaProducts:
+    type: entity
+    table: comercial.proposal_circuit_sva_products
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        proposalCircuitSvaId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: proposal_circuit_sva_id
+        externalId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: external_id
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        amount:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        type:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

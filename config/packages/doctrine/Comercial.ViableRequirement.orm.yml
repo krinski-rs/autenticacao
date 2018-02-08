@@ -1,0 +1,47 @@
+App\Entity\Comercial\ViableRequirement:
+    type: entity
+    table: comercial.viable_requirement
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        viableId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viable_id
+        requirementId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: requirement_id
+        quantity:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        price:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        groupId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: group_id
+        goal:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

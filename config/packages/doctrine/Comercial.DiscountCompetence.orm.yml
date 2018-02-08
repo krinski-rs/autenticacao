@@ -1,0 +1,37 @@
+App\Entity\Comercial\DiscountCompetence:
+    type: entity
+    table: comercial.discount_competence
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        idUser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_user
+        dateRecord:
+            type: datetime
+            nullable: false
+            column: date_record
+        active:
+            type: boolean
+            nullable: true
+        percentage:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        registrant:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

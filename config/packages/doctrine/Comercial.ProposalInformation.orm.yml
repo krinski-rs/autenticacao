@@ -1,0 +1,19 @@
+App\Entity\Comercial\ProposalInformation:
+    type: entity
+    table: comercial.proposal_information
+    id:
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: proposal_id
+        informationId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: information_id
+    lifecycleCallbacks: {  }

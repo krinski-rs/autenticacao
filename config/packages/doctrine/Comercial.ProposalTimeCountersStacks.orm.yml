@@ -1,0 +1,25 @@
+App\Entity\Comercial\ProposalTimeCountersStacks:
+    type: entity
+    table: comercial.proposal_time_counters_stacks
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 80
+            options:
+                fixed: false
+        deadline:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

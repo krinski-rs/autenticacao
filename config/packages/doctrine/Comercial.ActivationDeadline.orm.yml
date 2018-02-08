@@ -1,0 +1,21 @@
+App\Entity\Comercial\ActivationDeadline:
+    type: entity
+    table: comercial.activation_deadline
+    id:
+        state:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        daysDeadline:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: days_deadline
+    lifecycleCallbacks: {  }

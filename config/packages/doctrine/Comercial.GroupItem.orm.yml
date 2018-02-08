@@ -1,0 +1,31 @@
+App\Entity\Comercial\GroupItem:
+    type: entity
+    table: comercial.group_item
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        groupId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: group_id
+        productLuma:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: product_luma
+        quantity:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }

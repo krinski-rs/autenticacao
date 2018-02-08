@@ -1,0 +1,74 @@
+App\Entity\Comercial\ChanceClosed:
+    type: entity
+    table: comercial.chance_closed
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        walletId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: wallet_id
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+        dateApproval:
+            type: datetime
+            nullable: true
+            column: date_approval
+        approvedBy:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: approved_by
+        active:
+            type: boolean
+            nullable: true
+            options:
+                default: false
+        chanceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_id
+        dateClosed:
+            type: datetime
+            nullable: true
+            column: date_closed
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        idChanceClassification:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_chance_classification
+        tag:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        delta:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }

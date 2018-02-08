@@ -1,0 +1,19 @@
+App\Entity\Comercial\ProposalNumberImported:
+    type: entity
+    table: comercial.proposal_number_imported
+    id:
+        proposalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: proposal_id
+        numberImportedId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: number_imported_id
+    lifecycleCallbacks: {  }

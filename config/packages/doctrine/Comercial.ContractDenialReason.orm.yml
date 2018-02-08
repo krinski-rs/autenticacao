@@ -1,0 +1,26 @@
+App\Entity\Comercial\ContractDenialReason:
+    type: entity
+    table: comercial.contract_denial_reason
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        contractDenialReasonCategoryId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: contract_denial_reason_category_id
+    lifecycleCallbacks: {  }

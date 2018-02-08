@@ -1,0 +1,52 @@
+App\Entity\Comercial\Costs:
+    type: entity
+    table: comercial.costs
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        serviceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: service_id
+        interface:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        capexEquipament:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: capex_equipament
+        capexFiber:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: capex_fiber
+        ip:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        dateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: date_record
+        dateEnd:
+            type: datetime
+            nullable: true
+            column: date_end
+    lifecycleCallbacks: {  }

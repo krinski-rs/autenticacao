@@ -1,0 +1,54 @@
+App\Entity\Comercial\ChanceContact:
+    type: entity
+    table: comercial.chance_contact
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        telephone:
+            type: string
+            nullable: true
+            length: 15
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        chanceId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: chance_id
+        warn:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+    manyToOne:
+        chance:
+            targetEntity: App\Entity\Comercial\Chance
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                chance_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

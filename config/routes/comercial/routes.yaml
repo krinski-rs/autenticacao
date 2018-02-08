@@ -1,0 +1,20 @@
+service:
+    prefix: /service
+    resource: './service/routes.yaml'
+
+tag:
+    prefix: /tag
+    resource: './tag/routes.yaml'
+
+prospect:
+    prefix: /prospect
+    resource: './prospect/routes.yaml'
+
+wallet:
+    prefix: /wallet
+    resource: './wallet/routes.yaml'
+
+chance:
+    prefix: /chance
+    resource: './chance/routes.yaml'
+    

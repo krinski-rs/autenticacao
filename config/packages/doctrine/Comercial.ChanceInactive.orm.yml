@@ -1,0 +1,37 @@
+App\Entity\Comercial\ChanceInactive:
+    type: entity
+    table: comercial.chance_inactive
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        chanceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_id
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        recordDate:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: record_date
+        active:
+            type: boolean
+            nullable: true
+            options:
+                default: true
+    lifecycleCallbacks: {  }

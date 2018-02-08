@@ -1,0 +1,33 @@
+App\Entity\Comercial\Grupo:
+    type: entity
+    table: comercial.grupo
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        groupName:
+            type: string
+            nullable: false
+            length: 80
+            options:
+                fixed: false
+            column: group_name
+        groupDescription:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: group_description
+        ativo:
+            type: boolean
+            nullable: true
+            options:
+                default: true
+    lifecycleCallbacks: {  }

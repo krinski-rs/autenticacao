@@ -1,0 +1,46 @@
+App\Entity\Comercial\GoalWallet:
+    type: entity
+    table: comercial.goal_wallet
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        walletId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: wallet_id
+        goalId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: goal_id
+        score:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        team:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: true
+        chanceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,81 @@
+App\Entity\Comercial\Followup:
+    type: entity
+    table: comercial.followup
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        chanceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: chance_id
+        actionId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: action_id
+        nextActionId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: next_action_id
+        statusId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: status_id
+        temperature:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        nextActionDate:
+            type: datetime
+            nullable: true
+            column: next_action_date
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+        file:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        person:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        wallet:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        idContract:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: id_contract
+    lifecycleCallbacks: {  }

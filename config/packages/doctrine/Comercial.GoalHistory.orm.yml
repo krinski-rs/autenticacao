@@ -1,0 +1,31 @@
+App\Entity\Comercial\GoalHistory:
+    type: entity
+    table: comercial.goal_history
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        goalWalletId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: goal_wallet_id
+        score:
+            type: decimal
+            nullable: true
+            precision: 9
+            scale: 2
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+    lifecycleCallbacks: {  }

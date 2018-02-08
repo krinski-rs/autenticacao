@@ -1,0 +1,178 @@
+App\Entity\Comercial\Proposal:
+    type: entity
+    table: comercial.proposal
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        activationFare:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: activation_fare
+        monthlyCost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: monthly_cost
+        speed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        speedUnit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: speed_unit
+        activationDays:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: activation_days
+        contractDeadline:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: contract_deadline
+        contractUnit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: contract_unit
+        followupId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: followup_id
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: true
+            options:
+                default: true
+        latitude:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        longitude:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        dateLimit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: date_limit
+        priceRight:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_right
+        viableId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: viable_id
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        monthlyCostNoDiscount:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: monthly_cost_no_discount
+        activationFareNoDiscount:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: activation_fare_no_discount
+        attribs:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+                default: '{}'
+        cnpj:
+            type: string
+            nullable: true
+            length: 14
+            options:
+                fixed: false
+        bankInformationId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: bank_information_id
+        planType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: plan_type
+        franchiseCost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: franchise_cost
+        franchiseCostNoDiscount:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: franchise_cost_no_discount
+        accept:
+            type: boolean
+            nullable: true
+        payDay:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: pay_day
+        hasPermanenceTerm:
+            type: boolean
+            nullable: true
+            options:
+                default: false
+            column: has_permanence_term
+        contratoSthima:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: contrato_sthima
+    lifecycleCallbacks: {  }

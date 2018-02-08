@@ -1,0 +1,20 @@
+App\Entity\Comercial\ChanceType:
+    type: entity
+    table: comercial.chance_type
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
