@@ -39,6 +39,24 @@ put_chance:
     requirements:
         id: '\d+'
         
+put_chance_lost:
+    path: /{id}/lost
+    controller: 'App\Controller\Comercial\ChanceController::putChanceLost'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_chance_inactive:
+    path: /{id}/inactive
+    controller: 'App\Controller\Comercial\ChanceController::putChanceInactive'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
 patch_chance:
     path: /{id}
     controller: 'App\Controller\Comercial\ChanceController::patchChance'

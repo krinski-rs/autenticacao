@@ -96,16 +96,28 @@ class Chance
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $chanceContact;
-
+    
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $chanceIndication;
     
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $lostChance;
+    
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $chanceInactive;
+    
     public function __construct()
     {
         $this->chanceContact = new \Doctrine\Common\Collections\ArrayCollection();
         $this->chanceIndication = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->lostChance = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->chanceInactive = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -508,7 +520,7 @@ class Chance
      *
      * @param \App\Entity\Comercial\ChanceContact $chanceContact
      *
-     * @return Wallet
+     * @return Chance
      */
     public function addChanceContact(\App\Entity\Comercial\ChanceContact $chanceContact)
     {
@@ -536,36 +548,13 @@ class Chance
     {
         return $this->chanceContact;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     /**
      * Add chanceIndication
      *
      * @param \App\Entity\Comercial\ChanceIndication $chanceIndication
      *
-     * @return Wallet
+     * @return Chance
      */
     public function addChanceIndication(\App\Entity\Comercial\ChanceIndication $chanceIndication)
     {
@@ -593,5 +582,72 @@ class Chance
     {
         return $this->chanceIndication;
     }
+
+    /**
+     * Add lostChance
+     *
+     * @param \App\Entity\Comercial\LostChance $lostChance
+     *
+     * @return Chance
+     */
+    public function addLostChance(\App\Entity\Comercial\LostChance $lostChance)
+    {
+        $this->lostChance[] = $lostChance;
+        
+        return $this;
+    }
     
+    /**
+     * Remove lostChance
+     *
+     * @param \App\Entity\Comercial\LostChance $lostChance
+     */
+    public function removeLostChance(\App\Entity\Comercial\LostChance $lostChance)
+    {
+        $this->lostChance->removeElement($lostChance);
+    }
+    
+    /**
+     * Get lostChance
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getLostChance()
+    {
+        return $this->lostChance;
+    }
+
+    /**
+     * Add chanceInactive
+     *
+     * @param \App\Entity\Comercial\ChanceInactive $chanceInactive
+     *
+     * @return Chance
+     */
+    public function addChanceInactive(\App\Entity\Comercial\ChanceInactive $chanceInactive)
+    {
+        $this->chanceInactive[] = $chanceInactive;
+        
+        return $this;
+    }
+    
+    /**
+     * Remove chanceInactive
+     *
+     * @param \App\Entity\Comercial\ChanceInactive $chanceInactive
+     */
+    public function removeChanceInactive(\App\Entity\Comercial\ChanceInactive $chanceInactive)
+    {
+        $this->chanceInactive->removeElement($chanceInactive);
+    }
+    
+    /**
+     * Get chanceInactive
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getChanceInactive()
+    {
+        return $this->chanceInactive;
+    }
 }

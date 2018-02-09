@@ -131,4 +131,22 @@ App\Entity\Comercial\Chance:
             fetch: LAZY
             mappedBy: chance
             orphanRemoval: false
+        lostChance:
+            targetEntity: App\Entity\Comercial\LostChance
+            cascade:
+                - persist
+                - merge
+                - remove
+            fetch: LAZY
+            mappedBy: chance
+            orphanRemoval: false
+        chanceInactive:
+            targetEntity: App\Entity\Comercial\ChanceInactive
+            cascade:
+                - persist
+                - merge
+                - remove
+            fetch: LAZY
+            mappedBy: chance
+            orphanRemoval: false
     lifecycleCallbacks: {  }

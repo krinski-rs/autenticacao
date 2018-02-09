@@ -29,15 +29,47 @@ App\Entity\Comercial\LostChance:
             options:
                 default: now()
             column: date_record
-        wallet:
+        walletId:
             type: integer
             nullable: true
             options:
                 unsigned: false
+            column: wallet
         description:
             type: text
             nullable: true
             length: null
             options:
                 fixed: false
+    manyToOne:
+        chance:
+            targetEntity: App\Entity\Comercial\Chance
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                chance_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        wallet:
+            targetEntity: App\Entity\Comercial\Wallet
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                wallet:
+                    referencedColumnName: id
+            orphanRemoval: false
+        lostAction:
+            targetEntity: App\Entity\Comercial\LostAction
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                lost_action_id:
+                    referencedColumnName: id
+            orphanRemoval: false
     lifecycleCallbacks: {  }

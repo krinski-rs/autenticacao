@@ -31,7 +31,12 @@ class ChanceInactive
      * @var bool|null
      */
     private $active = true;
-
+    
+    /**
+     * @var \App\Entity\Comercial\Chance
+     */
+    private $chance;
+    
 
     /**
      * Get id.
@@ -137,5 +142,29 @@ class ChanceInactive
     public function getActive()
     {
         return $this->active;
+    }
+    
+    /**
+     * Set chance.
+     *
+     * @param \App\Entity\Comercial\Chance $chance
+     *
+     * @return ChanceInactive
+     */
+    public function setChance(\App\Entity\Comercial\Chance $chance = null)
+    {
+        $this->chance = $chance;
+        
+        return $this;
+    }
+    
+    /**
+     * Get chance.
+     *
+     * @return \App\Entity\Comercial\Chance
+     */
+    public function getChance()
+    {
+        return $this->chance;
     }
 }
