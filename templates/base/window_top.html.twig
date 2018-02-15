@@ -1,0 +1,14 @@
+{% block window_top %}
+						<div class="window_top">
+{% if attribute(window_top, 'float_left') is defined %}
+{% set float_left = window_top.float_left %}
+{% embed "float_left.html.twig" %}
+{% endembed %}
+{% endif %}
+{% if attribute(window_top, 'float_right') is defined %}
+{% set float_right = window_top.float_right %}
+{% embed "float_right.html.twig" %}
+{% endembed %}
+{% endif %}
+						</div>
+{% endblock %}

@@ -112,12 +112,18 @@ class Chance
      */
     private $chanceInactive;
     
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $viable;
+    
     public function __construct()
     {
         $this->chanceContact = new \Doctrine\Common\Collections\ArrayCollection();
         $this->chanceIndication = new \Doctrine\Common\Collections\ArrayCollection();
         $this->lostChance = new \Doctrine\Common\Collections\ArrayCollection();
         $this->chanceInactive = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->viable = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
 
@@ -649,5 +655,39 @@ class Chance
     public function getChanceInactive()
     {
         return $this->chanceInactive;
+    }
+
+    /**
+     * Add viable
+     *
+     * @param \App\Entity\Comercial\Viable $viable
+     *
+     * @return Chance
+     */
+    public function addViable(\App\Entity\Comercial\Viable $viable)
+    {
+        $this->viable[] = $viable;
+        
+        return $this;
+    }
+    
+    /**
+     * Remove viable
+     *
+     * @param \App\Entity\Comercial\Viable $viable
+     */
+    public function removeViable(\App\Entity\Comercial\Viable $viable)
+    {
+        $this->viable->removeElement($viable);
+    }
+    
+    /**
+     * Get chanceInactive
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getViable()
+    {
+        return $this->viable;
     }
 }

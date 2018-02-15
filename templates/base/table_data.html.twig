@@ -1,0 +1,34 @@
+{% block table_data %}
+								<table class="data">
+{% if attribute(window_content.table, 'thead') is defined and window_content.table.thead|length >= 1 %}
+									<thead>
+{% for key, tr in window_content.table.thead %}
+										<tr>
+{% if tr|length >= 1 %}
+{% for th in tr %}
+											<th{{ attribute(th, 'class') is defined ? ' class="' ~ th.class ~ '" ' : '' }}>
+												{{ attribute(th, 'text') is defined ? th.text|raw : '&nbsp;'|raw }}
+											</th>
+{% endfor %}
+{% endif %}
+										</tr>
+{% endfor %}
+									</thead>
+{% endif %}
+{% if attribute(window_content.table, 'tbody') is defined and window_content.table.tbody|length >= 1 %}
+									<tbody>
+{% for key, tr in window_content.table.tbody %}
+										<tr>
+{% if tr|length >= 1 %}
+{% for td in tr %}
+											<td{{ attribute(td, 'class') is defined ? 'class="' ~ td.class ~ '"' : '' }}>
+												{{ attribute(td, 'text') is defined ? td.text|raw : '&nbsp;'|raw }}
+											</td>
+{% endfor %}
+{% endif %}
+										</tr>
+{% endfor %}
+									</tbody>
+{% endif %}
+								</table>
+{% endblock %}

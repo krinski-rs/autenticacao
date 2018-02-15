@@ -1,0 +1,50 @@
+post_viable:
+    path: /
+    controller: 'App\Controller\Comercial\ViableController::postViable'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_viable:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ViableController::getViable'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_viable:
+    path: /
+    controller: 'App\Controller\Comercial\ViableController::getViables'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_viable:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ViableController::deleteViable'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_viable:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ViableController::putViable'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_viable:
+    path: /{id}
+    controller: 'App\Controller\Comercial\ViableController::patchViable'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

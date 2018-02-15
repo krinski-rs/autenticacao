@@ -1,0 +1,8 @@
+{% block float_left %}
+							<span class="float_left">
+{% if attribute(float_left, 'image') is defined %}
+								{{ float_left.image|raw }}
+{% endif %}
+								{{ float_left.text|raw }}
+							</span>
+{% endblock %}

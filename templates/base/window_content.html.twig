@@ -1,0 +1,13 @@
+{% block window_content %}
+						<div class="abs window_content">
+{% if attribute(window_content, 'text') is defined %}
+							<div class="window_aside">
+								{{ window_content.text|raw }}
+							</div>
+{% endif %}
+{% if attribute(window_content, 'table') is defined %}
+{% embed "window_main.html.twig" %}
+{% endembed %}
+{% endif %}
+						</div>
+{% endblock %}

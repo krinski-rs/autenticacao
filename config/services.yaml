@@ -83,3 +83,11 @@ services:
           alias: App\Service\Comercial\Chance
           public: true
           
+    App\Service\Comercial\Viable:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    comercial.viable:
+          alias: App\Service\Comercial\Viable
+          public: true
+          

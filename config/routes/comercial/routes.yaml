@@ -17,4 +17,8 @@ wallet:
 chance:
     prefix: /chances
     resource: './chance/routes.yaml'
+
+viable:
+    prefix: /viables
+    resource: './viable/routes.yaml'
     
