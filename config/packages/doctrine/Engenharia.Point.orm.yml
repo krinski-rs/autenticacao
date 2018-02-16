@@ -1,0 +1,95 @@
+App\Entity\Engenharia\Point:
+    type: entity
+    table: engenharia.point
+    indexes:
+        IDX_9F62DA3EC54C8C93:
+            columns:
+                - type_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        color:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: true
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        maxSpeed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: max_speed
+        interface:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: true
+        active:
+            type: boolean
+            nullable: true
+        locationType:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: location_type
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        dateRecord:
+            type: datetime
+            nullable: true
+            options:
+                default: now()
+            column: date_record
+        circCodigoid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: circ_codigoid
+        activationDeadline:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: activation_deadline
+        state:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: false
+    manyToOne:
+        type:
+            targetEntity: App\Entity\Engenharia\Type
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                type_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

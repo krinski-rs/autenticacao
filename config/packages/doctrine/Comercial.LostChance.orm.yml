@@ -1,6 +1,16 @@
 App\Entity\Comercial\LostChance:
     type: entity
     table: comercial.lost_chance
+    indexes:
+        fki_lost_chance_chance_id_pkey:
+            columns:
+                - chance_id
+        fki_lost_chance_lost_action_id_fkey:
+            columns:
+                - lost_action_id
+        fki_lost_chance_wallet_id_fkey:
+            columns:
+                - wallet
     id:
         id:
             type: integer

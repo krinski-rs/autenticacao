@@ -1,0 +1,37 @@
+App\Entity\Engenharia\KmzFile:
+    type: entity
+    table: engenharia.kmz_file
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        filename:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: true
+        dateRecord:
+            type: datetime
+            nullable: true
+            column: date_record
+        userId:
+            type: string
+            nullable: true
+            length: 4
+            options:
+                fixed: true
+            column: user_id
+        path:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: true
+    lifecycleCallbacks: {  }

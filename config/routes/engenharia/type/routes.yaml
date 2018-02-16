@@ -1,0 +1,50 @@
+post_type:
+    path: /
+    controller: 'App\Controller\Engenharia\TypeController::postType'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_type:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\TypeController::getType'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_type:
+    path: /
+    controller: 'App\Controller\Engenharia\TypeController::getTypes'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_type:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\TypeController::deleteType'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_type:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\TypeController::putType'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_type:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\TypeController::patchType'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

@@ -7,6 +7,9 @@ troubleticket:
 comercial:
     prefix: /comercial
     resource: './routes/comercial/routes.yaml'
+engenharia:
+    prefix: /engenharia
+    resource: './routes/engenharia/routes.yaml'
 home:
     prefix: /
     resource: './routes/home/routes.yaml'

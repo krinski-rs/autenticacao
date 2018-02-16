@@ -1,6 +1,10 @@
 App\Entity\Comercial\ChanceInactive:
     type: entity
     table: comercial.chance_inactive
+    indexes:
+        fki_chance_inactive_chance_id_fkey:
+            columns:
+                - chance_id
     id:
         id:
             type: integer

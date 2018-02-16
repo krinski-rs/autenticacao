@@ -1,0 +1,50 @@
+post_point:
+    path: /
+    controller: 'App\Controller\Engenharia\PointController::postPoint'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_point:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\PointController::getPoint'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_point:
+    path: /
+    controller: 'App\Controller\Engenharia\PointController::getPoints'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_point:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\PointController::deletePoint'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_point:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\PointController::putPoint'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_point:
+    path: /{id}
+    controller: 'App\Controller\Engenharia\PointController::patchPoint'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

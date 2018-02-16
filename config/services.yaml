@@ -97,3 +97,19 @@ services:
           alias: App\Service\Comercial\Viable
           public: true
           
+    App\Service\Engenharia\Type:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    engenharia.type:
+          alias: App\Service\Engenharia\Type
+          public: true
+          
+    App\Service\Engenharia\Point:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    engenharia.point:
+          alias: App\Service\Engenharia\Point
+          public: true
+          

@@ -1,6 +1,13 @@
 App\Entity\Comercial\Prospect:
     type: entity
     table: comercial.prospect
+    indexes:
+        IDX_2F1EBAD09D2D5FD9:
+            columns:
+                - id_tag
+        IDX_2F1EBAD05A5F27F2:
+            columns:
+                - id_wallet
     id:
         id:
             type: integer

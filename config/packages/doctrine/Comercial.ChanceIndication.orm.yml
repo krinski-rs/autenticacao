@@ -1,6 +1,10 @@
 App\Entity\Comercial\ChanceIndication:
     type: entity
     table: comercial.chance_indication
+    indexes:
+        fki_chance_indication_chance_id_fkey:
+            columns:
+                - id_chance
     id:
         id:
             type: integer

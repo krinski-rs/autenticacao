@@ -5,17 +5,17 @@ SET search_path = engenharia, pg_catalog;
 CREATE TABLE kmz_file
 (
   id serial NOT NULL,
-  filename character(100),
+  filename character varying(100),
   date_record timestamp without time zone,
-  user_id character(4),
-  path character(100),
+  user_id character varying(4),
+  path character varying(100),
   CONSTRAINT kmz_file_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE type
 (
   id serial NOT NULL,
-  name character(100),
+  name character varying(100) NOT NULL,
   CONSTRAINT type_pk PRIMARY KEY (id)
 );
 
@@ -29,14 +29,14 @@ CREATE TABLE kmz
   type_id integer,
   kmz_file_id integer,
   active boolean,
-  color character(6),
+  color character varying(6),
   date_valid timestamp without time zone,
   max_speed integer,
   radius integer,
-  interface character(3),
+  interface character varying(3),
   prox boolean,
   error boolean,
-  tipo_arquivo character(15),
+  tipo_arquivo character varying(15),
   coordenadas_poligono character varying,
   activation_deadline integer,
   CONSTRAINT kmz_pkey PRIMARY KEY (id),
@@ -51,19 +51,19 @@ CREATE TABLE kmz
 CREATE TABLE point
 (
   id serial NOT NULL,
-  name character varying(500),
-  color character(6),
-  type_id integer,
+  name character varying(500) NOT NULL,
+  color character varying(7) NOT NULL,
+  type_id integer NOT NULL,
   date_valid timestamp without time zone,
   max_speed integer,
-  interface character(3),
-  active boolean,
-  location_type integer,
-  author integer,
-  date_record timestamp(0) without time zone DEFAULT now(),
+  interface character varying(3) NOT NULL,
+  active boolean NOT NULL,
+  location_type integer NOT NULL,
+  author integer NOT NULL,
+  date_record timestamp(0) without time zone NOT NULL DEFAULT now(),
   circ_codigoid integer,
   activation_deadline integer,
-  state character varying(2),
+  state character varying(2) NOT NULL,
   CONSTRAINT point_pkey PRIMARY KEY (id),
   CONSTRAINT point_type_id_type_id_fk FOREIGN KEY (type_id)
       REFERENCES type (id) MATCH SIMPLE

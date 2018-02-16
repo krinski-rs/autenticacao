@@ -1,6 +1,19 @@
 App\Entity\Comercial\Chance:
     type: entity
     table: comercial.chance
+    indexes:
+        fki_chance_chance_type_id_fkey:
+            columns:
+                - service_type
+        fki_chance_followup_id_fkey:
+            columns:
+                - id_followup
+        fki_chance_prospect_id_fkey:
+            columns:
+                - id_prospect
+        fki_chance_service_id_fkey:
+            columns:
+                - id_product
     id:
         id:
             type: integer

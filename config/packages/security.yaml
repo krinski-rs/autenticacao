@@ -30,6 +30,12 @@ security:
                 authenticators:
                     - rest_authenticator
                     
+        engenharia:
+            pattern: ^/engenharia
+            guard:
+                authenticators:
+                    - rest_authenticator
+                    
         login:
             anonymous: ~
             guard:
