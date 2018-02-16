@@ -1,66 +1,23 @@
-#post_chance:
-#    path: /
-#    controller: 'App\Controller\Comercial\ChanceController::postChance'
-#    methods: [POST]
-#    defaults:
-#        _format: json
-        
-get_home:
-    path: /
-    controller: 'App\Controller\Home\IndexController::getIndex'
+login:
+    path: /login
+    controller: 'App\Controller\Home\IndexController::login'
     methods: [GET]
     defaults:
         _format: html
-#        
-#list_chance:
-#    path: /
-#    controller: 'App\Controller\Comercial\ChanceController::getChances'
-#    methods: [GET]
-#    defaults:
-#        _format: json
-#        
-#delete_chance:
-#    path: /{id}
-#    controller: 'App\Controller\Comercial\ChanceController::deleteChance'
-#    methods: [DELETE]
-#    defaults:
-#        _format: json
-#    requirements:
-#        id: '\d+'
-#        
-#put_chance:
-#    path: /{id}
-#    controller: 'App\Controller\Comercial\ChanceController::putChance'
-#    methods: [PUT]
-#    defaults:
-#        _format: json
-#    requirements:
-#        id: '\d+'
-#        
-#put_chance_lost:
-#    path: /{id}/lost
-#    controller: 'App\Controller\Comercial\ChanceController::putChanceLost'
-#    methods: [PUT]
-#    defaults:
-#        _format: json
-#    requirements:
-#        id: '\d+'
-#        
-#put_chance_inactive:
-#    path: /{id}/inactive
-#    controller: 'App\Controller\Comercial\ChanceController::putChanceInactive'
-#    methods: [PUT]
-#    defaults:
-#        _format: json
-#    requirements:
-#        id: '\d+'
-#        
-#patch_chance:
-#    path: /{id}
-#    controller: 'App\Controller\Comercial\ChanceController::patchChance'
-#    methods: [PATCH]
-#    defaults:
-#        _format: json
-#    requirements:
-#        id: '\d+'
+        
+login_check:
+    path:     /login_check
+    controller: 'App\Controller\Home\IndexController::loginCheck'
+
+logout:
+    path:     /logout
+    controller: 'App\Controller\Home\IndexController::logout'
+    
+registration:
+    path:     /register
+    controller: 'App\Controller\Home\IndexController::register'
+    
+home:
+    path:     /home
+    controller: 'App\Controller\Home\IndexController::home'
         

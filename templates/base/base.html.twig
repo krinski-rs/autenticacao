@@ -10,26 +10,26 @@
 			window.top.location = 'http://127.0.0.1:8000/ie.html';
 		</script>
 		<![endif]-->
-		<link rel="stylesheet" href="{{ asset('bundles/app/css/jquery/desktop/reset.css') }}" />
-		<link rel="stylesheet" href="{{ asset('bundles/app/css/jquery/desktop/desktop.css') }}" />
+		<link rel="stylesheet" href="{{ asset('css/jquery/desktop/reset.css') }}" />
+		<link rel="stylesheet" href="{{ asset('css/jquery/desktop/desktop.css') }}" />
 		<!--[if lt IE 9]>
-		<link rel="stylesheet" href="{{ asset('bundles/app/css/jquery/desktop/ie.css') }}" />
+		<link rel="stylesheet" href="{{ asset('css/jquery/desktop/ie.css') }}" />
 		<![endif]-->
 		{% block stylesheets %}
 		{% endblock %}
 	</head>
 	<body>
 		<div class="abs" id="wrapper">
-{% embed "desktop.html.twig" %}
+{% embed "base/desktop.html.twig" %}
 {% endembed %}
-{% embed "bar_top.html.twig" %}
+{% embed "base/bar_top.html.twig" %}
 {% endembed %}
-{% embed "bar_bottom.html.twig" %}
+{% embed "base/bar_bottom.html.twig" %}
 {% endembed %}
 		</div>
-		<script src="{{ asset('bundles/app/js/jquery/jquery.js') }}"></script>
-		<script src="{{ asset('bundles/app/js/jquery/ui/jquery-ui.js') }}"></script>
-		<script src="{{ asset('bundles/app/js/jquery/desktop/desktop.js') }}"></script>
+		<script src="{{ asset('js/jquery/jquery.js') }}"></script>
+		<script src="{{ asset('js/jquery/ui/jquery-ui.js') }}"></script>
+		<script src="{{ asset('js/jquery/desktop/desktop.js') }}"></script>
 		{% block javascripts %}
 		{% endblock %}
 	</body>

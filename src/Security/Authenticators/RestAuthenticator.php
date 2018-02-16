@@ -10,16 +10,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Bundle\DoctrineBundle\Registry;
-use App\Security\Providers\RestUserProvider;
 
 class RestAuthenticator extends AbstractGuardAuthenticator
 {
-    private $objRegistry = NULL;
-    
-    public function __construct(Registry $objRegistry)
-    {
-        $this->objRegistry = $objRegistry;
-    }
 
     public function supportsRememberMe()
     {
@@ -38,7 +31,7 @@ class RestAuthenticator extends AbstractGuardAuthenticator
     public function onAuthenticationSuccess(Request $objRequest, TokenInterface $objTokenInterface, $providerKey)
     {
         // on success, let the request continue
-        return null;
+        return NULL;
     }
 
     public function getUser($credentials, UserProviderInterface $objUserProviderInterface)
@@ -46,15 +39,7 @@ class RestAuthenticator extends AbstractGuardAuthenticator
         if(!trim($credentials['username']) || !trim($credentials['password'])){
             return ;
         }
-        /*
-         * para verificar senha e outras coisas colocar no checkCredentials
-         */
-        if($objUserProviderInterface instanceof RestUserProvider){
-            $objEntityManager = $this->objRegistry->getManager('trouble');
-            $objEntityManager->getRepository('App\Entity\Autorizacao\Usuarios');
-            $objUserLoaderInterface = $objEntityManager->getRepository('App\Entity\Autorizacao\Usuarios');
-            $objUserProviderInterface->setRepository($objUserLoaderInterface);
-        }
+
         return $objUserProviderInterface->loadUserByUsername($credentials['username']);
     }
 

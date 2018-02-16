@@ -4,7 +4,7 @@
 {% set icons = desktop.icons %}
 {% if icons|length >= 1 %}
 {% for icon in icons %}
-{% embed "icon.html.twig" %}
+{% embed "base/icon.html.twig" %}
 {% endembed %}
 {% endfor %}
 {% endif %}
@@ -16,7 +16,7 @@
 {% set windows = desktop.windows %}
 {% if windows|length >= 1 %}
 {% for window in windows %}
-{% embed "window.html.twig" %}
+{% embed "base/window.html.twig" %}
 {% endembed %}
 {% endfor %}
 {% endif %}

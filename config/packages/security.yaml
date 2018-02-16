@@ -12,15 +12,35 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: ~
-            logout: ~
+#        main:
+#            anonymous: ~
+#            logout: ~
+#            guard:
+#                authenticators:
+#                    - rest_authenticator
+        trouble:
+            pattern: ^/troubleticket
             guard:
                 authenticators:
                     - rest_authenticator
+                    
+        comercial:
+            pattern: ^/comercial
+            guard:
+                authenticators:
+                    - rest_authenticator
+                    
+        login:
+            anonymous: ~
+            guard:
+                authenticators:
+                    - form_authenticator
+         
     access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/troubleticket, roles: ROLE_REST_USER }
         - { path: ^/comercial, roles: ROLE_REST_USER }
+        - { path: ^/, roles: ROLE_REST_USER }
             # activate different ways to authenticate
 
             # http_basic: ~

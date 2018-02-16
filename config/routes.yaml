@@ -8,6 +8,6 @@ comercial:
     prefix: /comercial
     resource: './routes/comercial/routes.yaml'
 home:
-    prefix: /home
+    prefix: /
     resource: './routes/home/routes.yaml'
     

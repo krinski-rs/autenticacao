@@ -30,10 +30,16 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 300 }
+          
+    App\Security\Providers\RestUserProvider:
+          public: false
+          arguments: ["@doctrine"]
 
     rest_authenticator:
           class: App\Security\Authenticators\RestAuthenticator
-          arguments: ["@doctrine"]
+
+    form_authenticator:
+          class: App\Security\Authenticators\FormAuthenticator
           
     App\Service\Troubleticke\Reports:
           public: false
