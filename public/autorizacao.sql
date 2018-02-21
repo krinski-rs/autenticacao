@@ -2,6 +2,21 @@ CREATE SCHEMA autorizacao;
 
 SET search_path = autorizacao, pg_catalog;
 
+CREATE TABLE autorizacao.menu
+(
+    id serial NOT NULL,
+    menu_id integer,
+    nome character varying(20) NOT NULL,
+    ativo boolean NOT NULL,
+    lft integer NOT NULL,
+    rgt integer NOT NULL,
+    CONSTRAINT menu_pkey PRIMARY KEY (id),
+    CONSTRAINT menu_menu_fkey FOREIGN KEY (menu_id)
+        REFERENCES autorizacao.menu (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
 CREATE TABLE autorizacao.regra
 (
     id seria NOT NULL,
