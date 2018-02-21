@@ -1,0 +1,45 @@
+App\Entity\Prevendas\Feature:
+    type: entity
+    table: prevendas.feature
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        atriCodigoid:
+            type: bigint
+            nullable: true
+            options:
+                unsigned: false
+            column: atri_codigoid
+        mandatory:
+            type: boolean
+            nullable: false
+        serviceId:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: false
+            column: service_id
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        group:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

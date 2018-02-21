@@ -34,6 +34,10 @@ services:
     App\Security\Providers\RestUserProvider:
           public: false
           arguments: ["@doctrine"]
+          
+    App\Security\Providers\FormUserProvider:
+          public: false
+          arguments: ["@doctrine"]
 
     rest_authenticator:
           class: App\Security\Authenticators\RestAuthenticator
@@ -111,5 +115,29 @@ services:
           
     engenharia.point:
           alias: App\Service\Engenharia\Point
+          public: true
+          
+    App\Service\Prevendas\Lpu:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    prevendas.lpu:
+          alias: App\Service\Prevendas\Lpu
+          public: true
+          
+    App\Service\Autorizacao\Regra:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    autorizacao.regra:
+          alias: App\Service\Autorizacao\Regra
+          public: true
+          
+    App\Service\Autorizacao\Usuario:
+          public: false
+          arguments: ["@doctrine", "@validator"]
+          
+    autorizacao.usuario:
+          alias: App\Service\Autorizacao\Usuario
           public: true
           

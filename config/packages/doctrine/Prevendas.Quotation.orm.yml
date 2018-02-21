@@ -1,0 +1,46 @@
+App\Entity\Prevendas\Quotation:
+    type: entity
+    table: prevendas.quotation
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        dateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: date_record
+        client:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        serviceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: service_id
+        speed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        deadline:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

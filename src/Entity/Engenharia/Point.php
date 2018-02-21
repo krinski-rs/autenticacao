@@ -76,7 +76,16 @@ class Point
      * @var \App\Entity\Engenharia\Type
      */
     private $type;
-
+    
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $location;
+    
+    public function __construct()
+    {
+        $this->location = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -398,5 +407,39 @@ class Point
     public function getType()
     {
         return $this->type;
+    }
+    
+    /**
+     * Add location
+     *
+     * @param \App\Entity\Engenharia\Location $location
+     *
+     * @return Point
+     */
+    public function addLocation(\App\Entity\Engenharia\Location $location)
+    {
+        $this->location[] = $location;
+        
+        return $this;
+    }
+    
+    /**
+     * Remove location
+     *
+     * @param \App\Entity\Engenharia\Location $location
+     */
+    public function removeLocation(\App\Entity\Engenharia\Location $location)
+    {
+        $this->location->removeElement($location);
+    }
+    
+    /**
+     * Get location
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 }

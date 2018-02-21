@@ -1,0 +1,59 @@
+post_usuario:
+    path: /
+    controller: 'App\Controller\Autorizacao\UsuarioController::postUsuario'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+post_usuario_regra:
+    path: /{id}/regras
+    controller: 'App\Controller\Autorizacao\UsuarioController::postUsuarioRegra'
+    methods: [POST]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+get_usuario:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\UsuarioController::getUsuario'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_usuario:
+    path: /
+    controller: 'App\Controller\Autorizacao\UsuarioController::getUsuarios'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_usuario:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\UsuarioController::deleteUsuario'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_usuario:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\UsuarioController::putUsuario'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_usuario:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\UsuarioController::patchUsuario'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

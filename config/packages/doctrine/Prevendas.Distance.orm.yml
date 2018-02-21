@@ -1,0 +1,75 @@
+App\Entity\Prevendas\Distance:
+    type: entity
+    table: prevendas.distance
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        serviceId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: service_id
+        dateRecord:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: date_record
+        minDistance:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: min_distance
+        maxDistance:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+            column: max_distance
+        price:
+            type: decimal
+            nullable: false
+            precision: 10
+            scale: 2
+        active:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        minSpeed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: min_speed
+        maxSpeed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: max_speed
+        authorEdit:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: author_edit
+        dateEdit:
+            type: datetime
+            nullable: true
+            column: date_edit
+    lifecycleCallbacks: {  }

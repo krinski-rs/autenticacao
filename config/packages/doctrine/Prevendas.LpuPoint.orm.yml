@@ -1,0 +1,35 @@
+App\Entity\Prevendas\LpuPoint:
+    type: entity
+    table: prevendas.lpu_point
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        pointId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: point_id
+        dateRecord:
+            type: datetime
+            nullable: true
+            column: date_record
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

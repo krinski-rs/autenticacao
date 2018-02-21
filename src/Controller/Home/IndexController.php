@@ -3,32 +3,24 @@ namespace App\Controller\Home;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use App\Util\Desktop\BarTop;
 
 class IndexController extends Controller
 {
-    public function login(Request $request)
+    public function login(Request $objRequest)
     {
-        // replace this example code with whatever you need
-        //         return $this->render('default/login.html.twig', [
-        //             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        //         ]);
-            
-        $helper = $this->get('security.authentication_utils');
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirect($this->generateUrl('home'));
+        }
         
+        $helper = $this->get('security.authentication_utils');
         return $this->render(
             'auth/login.html.twig',
             [
-            //                 'desktop' => [
-                //                     'icons' => [],
-                //                     'windows' => [],
-                //                     'dock' => [],
-                //                     'bar_top' => []
-                //                 ]
                 'last_username' => $helper->getLastUsername(),
                 'error'         => $helper->getLastAuthenticationError(),
             ]
-            );
-        
+        );
     }
     
     public function loginCheck()
@@ -39,12 +31,18 @@ class IndexController extends Controller
     
     public function logout()
     {
-        
+        $this->get('security.context')->setToken(null);
+        $this->get('request')->getSession()->invalidate();
     }
     
-    public function home()
+    public function home(Request $objRequest)
     {
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirect($this->generateUrl('login'));
+        }
+        $objBarTop = new BarTop($this->getUser());
         return $this->render('base/base.html.twig',  [
+            'title' => "Compra Ágil",
             'desktop' => [
                 'icons' => [
                     [

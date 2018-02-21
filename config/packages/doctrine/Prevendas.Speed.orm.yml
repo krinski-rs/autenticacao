@@ -1,0 +1,43 @@
+App\Entity\Prevendas\Speed:
+    type: entity
+    table: prevendas.speed
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        speed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        activationFare:
+            type: decimal
+            nullable: true
+            precision: 15
+            scale: 2
+            column: activation_fare
+        monthlyCost:
+            type: decimal
+            nullable: true
+            precision: 15
+            scale: 2
+            column: monthly_cost
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        speedTypeId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: speed_type_id
+    lifecycleCallbacks: {  }

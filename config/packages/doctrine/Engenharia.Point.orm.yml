@@ -81,6 +81,16 @@ App\Entity\Engenharia\Point:
             length: 2
             options:
                 fixed: false
+    oneToMany:
+        location:
+            targetEntity: App\Entity\Engenharia\Location
+            cascade:
+                - persist
+                - merge
+                - remove
+            fetch: LAZY
+            mappedBy: point
+            orphanRemoval: false
     manyToOne:
         type:
             targetEntity: App\Entity\Engenharia\Type

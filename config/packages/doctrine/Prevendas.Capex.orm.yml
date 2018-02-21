@@ -1,0 +1,49 @@
+App\Entity\Prevendas\Capex:
+    type: entity
+    table: prevendas.capex
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        initialSpeed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: initial_speed
+        initialSpeedTypeId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: initial_speed_type_id
+        finalSpeed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: final_speed
+        finalSpeedTypeId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: final_speed_type_id
+        cost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }

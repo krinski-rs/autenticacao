@@ -1,0 +1,8 @@
+regra:
+    prefix: /regras
+    resource: './regra/routes.yaml'
+    
+usuario:
+    prefix: /usuarios
+    resource: './usuario/routes.yaml'
+    

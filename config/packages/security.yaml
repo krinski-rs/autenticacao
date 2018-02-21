@@ -4,8 +4,13 @@ security:
 #        in_memory: { memory: ~ }
         rest_user_provider:
             id: App\Security\Providers\RestUserProvider
+        form_user_provider:
+            id: App\Security\Providers\FormUserProvider
     encoders:
         App\Security\Users\RestUser:
+            algorithm: bcrypt
+            cost: 12        
+        App\Security\Users\FormUser:
             algorithm: bcrypt
             cost: 12        
     firewalls:
@@ -19,34 +24,25 @@ security:
 #                authenticators:
 #                    - rest_authenticator
         trouble:
-            pattern: ^/troubleticket
-            guard:
-                authenticators:
-                    - rest_authenticator
-                    
-        comercial:
-            pattern: ^/comercial
-            guard:
-                authenticators:
-                    - rest_authenticator
-                    
-        engenharia:
-            pattern: ^/engenharia
+            pattern: ^/api
+            provider: rest_user_provider
             guard:
                 authenticators:
                     - rest_authenticator
                     
         login:
             anonymous: ~
+            provider: form_user_provider
             guard:
                 authenticators:
                     - form_authenticator
-         
+            logout:
+                path: /logout
+                target: /login         
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/troubleticket, roles: ROLE_REST_USER }
-        - { path: ^/comercial, roles: ROLE_REST_USER }
-        - { path: ^/, roles: ROLE_REST_USER }
+        - { path: ^/api, roles: ROLE_REST_USER }
+        - { path: ^\?/api/, roles: ROLE_USER }
             # activate different ways to authenticate
 
             # http_basic: ~

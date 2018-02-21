@@ -1,0 +1,38 @@
+App\Entity\Prevendas\Number:
+    type: entity
+    table: prevendas.number
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        numberTypeId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: number_type_id
+        lpuPlanId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_plan_id
+        activationFare:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: activation_fare
+        monthlyCost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: monthly_cost
+    lifecycleCallbacks: {  }

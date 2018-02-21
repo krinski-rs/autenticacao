@@ -9,7 +9,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class RestAuthenticator extends AbstractGuardAuthenticator
 {
@@ -39,7 +38,6 @@ class RestAuthenticator extends AbstractGuardAuthenticator
         if(!trim($credentials['username']) || !trim($credentials['password'])){
             return ;
         }
-
         return $objUserProviderInterface->loadUserByUsername($credentials['username']);
     }
 

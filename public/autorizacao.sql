@@ -2,14 +2,14 @@ CREATE SCHEMA autorizacao;
 
 SET search_path = autorizacao, pg_catalog;
 
-CREATE TABLE autorizacao.regras
+CREATE TABLE autorizacao.regra
 (
     id seria NOT NULL,
     nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT regras_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE autorizacao.usuarios
+CREATE TABLE autorizacao.usuario
 (
     id seria NOT NULL,
     nome character varying(255) COLLATE pg_catalog."default" NOT NULL,

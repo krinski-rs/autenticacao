@@ -1,0 +1,48 @@
+App\Entity\Prevendas\QuotationAddressPoint:
+    type: entity
+    table: prevendas.quotation_address_point
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        quotationAddressId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: quotation_address_id
+        pointId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: point_id
+        distance:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+        approximate:
+            type: boolean
+            nullable: false
+            options:
+                default: false
+        lpus:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

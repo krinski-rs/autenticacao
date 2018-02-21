@@ -5,8 +5,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Validation;
 use Doctrine\ORM\EntityManager;
-use App\Entity\Engenharia\Point;
+use App\Entity\Engenharia\Point as EntityPoint;
 use App\Entity\Engenharia\Type;
+use App\Entity\Engenharia\Location;
+use App\Service\Engenharia\Location\Create as LocationCreate;
 
 class Create
 {
@@ -24,7 +26,7 @@ class Create
         try {
             $this->validate($objRequest);
             
-            $this->objPoint = new Point();
+            $this->objPoint = new EntityPoint();
             $this->objPoint->setActivationDeadline($objRequest->get('activationDeadline', NULL));
             $this->objPoint->setActive($objRequest->get('active', NULL));
             $this->objPoint->setAuthor(trim($objRequest->get('author', NULL)));
@@ -35,9 +37,38 @@ class Create
             $this->objPoint->setInterface(implode("", $objRequest->get('interface', NULL)));
             $this->objPoint->setLocationType($objRequest->get('locationType', NULL));
             $this->objPoint->setMaxSpeed($objRequest->get('maxSpeed', NULL));
-            $this->objPoint->setName($objRequest->get('name', NULL));  
+            $this->objPoint->setName($objRequest->get('name', NULL));
             $this->objPoint->setState(trim($objRequest->get('state', NULL)));
             $this->objPoint->setType($this->objType);
+            
+            $objLocationCreate = new LocationCreate($this->objEntityManager);
+            switch ($objRequest->get('locationType', NULL)){
+                case 1: //PONTO
+                    $objRequestLocation = new Request();
+                    $objRequestLocation->attributes->add($objRequest->get('location', NULL));
+                    $objLocationCreate->setPoint($this->objPoint);
+                    $objLocationCreate->create($objRequestLocation);
+                    $this->objPoint->addLocation($objLocationCreate->getLocation());
+                    break;
+                case 2: //POLIGONO
+                    $arrayLocation = $objRequest->get('location', []);
+                    if(!count($arrayLocation)){
+                        throw new \RuntimeException("Nenhum ponto encontrado.");
+                    }
+                    reset($arrayLocation);
+                    while ($location = current($arrayLocation)){
+                        $objRequestLocation = new Request();
+                        $objRequestLocation->attributes->add($location);
+                        $objLocationCreate->setPoint($this->objPoint);
+                        $objLocationCreate->create($objRequestLocation);
+                        $objLocationPrev = $objLocationCreate->getLocation();
+                        $this->objPoint->addLocation($objLocationPrev);
+                        $objLocationCreate->setLocationPrev($objLocationPrev);
+                        next($arrayLocation);
+                    }
+                    break;
+            }
+            
         } catch (\RuntimeException $e){
             throw $e;
         } catch (\Exception $e){
@@ -240,7 +271,7 @@ class Create
             'maxSpeed'  => $objRequest->get('maxSpeed', NULL),
             'name'  => $objRequest->get('name', NULL),
             'state'  => $objRequest->get('state', NULL),
-            'type'  => trim($objRequest->get('type', NULL))
+            'type'  => $objRequest->get('type', NULL)
         ];
         
         $objConstraintViolationList = $objRecursiveValidator->validate($data, $objCollection);

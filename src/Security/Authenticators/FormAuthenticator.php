@@ -52,10 +52,9 @@ class FormAuthenticator extends AbstractFormLoginAuthenticator
     {
         $plainPassword = $credentials['password'];
         
-        if ($objUserInterface->getPassword() == trim($credentials['password'])) {
+        if ($this->objUserPasswordEncoderInterface->isPasswordValid($objUserInterface, $plainPassword.$objUserInterface->getSalt())) {
             return true;
         }
-        
         throw new BadCredentialsException();
     }
     

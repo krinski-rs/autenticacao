@@ -7,7 +7,7 @@ use App\Security\Users\RestUser;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
-use App\Entity\Autorizacao\Usuarios;
+use App\Entity\Autorizacao\Usuario;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class RestUserProvider implements UserProviderInterface
@@ -17,8 +17,7 @@ class RestUserProvider implements UserProviderInterface
     public function __construct(Registry $objRegistry)
     {
         $objEntityManager = $objRegistry->getManager('trouble');
-        $objEntityManager->getRepository('App\Entity\Autorizacao\Usuarios');
-        $this->objRepository = $objEntityManager->getRepository('App\Entity\Autorizacao\Usuarios');
+        $this->objRepository = $objEntityManager->getRepository('App\Entity\Autorizacao\Usuario');
         
     }
     
@@ -48,7 +47,7 @@ class RestUserProvider implements UserProviderInterface
          * buscar o usuario de onde estiver da forma que achar melhor
          */
         $objUsuarios = $this->objRepository->loadUserByUsername($username);
-        if($objUsuarios instanceof Usuarios){
+        if($objUsuarios instanceof Usuario){
             $objRestUser = new RestUser();
             $objRestUser->setPassword($objUsuarios->getPassword());
             $objRestUser->setSalt($objUsuarios->getSalt());

@@ -1,0 +1,36 @@
+App\Entity\Autorizacao\UsuarioRegra:
+    type: entity
+    table: autorizacao.usuario_regra
+    id:
+        usuario:
+            associationKey: true
+        regra:
+            associationKey: true
+    fields:
+        valor:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        usuario:
+            targetEntity: App\Entity\Autorizacao\Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: usuarioRegra
+            joinColumns:
+                id_usuarios:
+                    referencedColumnName: id
+            orphanRemoval: false
+        regra:
+            targetEntity: App\Entity\Autorizacao\Regra
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_regras:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

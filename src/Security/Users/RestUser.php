@@ -2,7 +2,6 @@
 namespace App\Security\Users;
 
 use Symfony\Component\Security\Core\User\UserInterface;
-use App\Entity\Autorizacao\Usuarios;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 
 class RestUser implements UserInterface, EquatableInterface

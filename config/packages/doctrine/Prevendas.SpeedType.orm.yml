@@ -1,0 +1,26 @@
+App\Entity\Prevendas\SpeedType:
+    type: entity
+    table: prevendas.speed_type
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        multiplier:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+    lifecycleCallbacks: {  }
