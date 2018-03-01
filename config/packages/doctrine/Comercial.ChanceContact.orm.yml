@@ -1,6 +1,10 @@
 App\Entity\Comercial\ChanceContact:
     type: entity
     table: comercial.chance_contact
+    indexes:
+        fki_chance_contact_chance_id_fkey:
+            columns:
+                - chance_id
     id:
         id:
             type: integer

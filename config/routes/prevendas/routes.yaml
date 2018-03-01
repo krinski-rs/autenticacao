@@ -1,0 +1,4 @@
+lpu:
+    prefix: /lpus
+    resource: './lpu/routes.yaml'
+    

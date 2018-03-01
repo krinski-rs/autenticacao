@@ -1,0 +1,45 @@
+App\Entity\Prevendas\Plan:
+    type: entity
+    table: prevendas.plan
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        feeCodigoid:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: fee_codigoid
+        name:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        maxDdr:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: max_ddr
+        dateRecord:
+            type: datetime
+            nullable: true
+            column: date_record
+        dateEnd:
+            type: datetime
+            nullable: true
+            column: date_end
+        author:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

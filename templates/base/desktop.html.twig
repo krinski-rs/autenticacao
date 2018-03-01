@@ -1,0 +1,26 @@
+			<div class="abs" id="desktop">
+{% if attribute(desktop, 'icons') is defined %}
+
+{% set icons = desktop.icons %}
+{% if icons|length >= 1 %}
+{% for icon in icons %}
+{% embed "base/icon.html.twig" %}
+{% endembed %}
+{% endfor %}
+{% endif %}
+
+{% endif %}
+
+{% if attribute(desktop, 'windows') is defined %}
+
+{% set windows = desktop.windows %}
+{% if windows|length >= 1 %}
+{% for window in windows %}
+{% embed "base/window.html.twig" %}
+{% endembed %}
+{% endfor %}
+{% endif %}
+
+{% endif %}
+			</div>
+			

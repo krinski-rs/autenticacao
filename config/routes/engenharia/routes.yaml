@@ -1,0 +1,8 @@
+type:
+    prefix: /types
+    resource: './type/routes.yaml'
+
+point:
+    prefix: /points
+    resource: './point/routes.yaml'
+    

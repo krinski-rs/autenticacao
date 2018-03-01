@@ -1,0 +1,29 @@
+App\Entity\Prevendas\LpuCustomer:
+    type: entity
+    table: prevendas.lpu_customer
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        custumer:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        dateRecord:
+            type: datetime
+            nullable: true
+            column: date_record
+    lifecycleCallbacks: {  }

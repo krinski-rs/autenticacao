@@ -90,7 +90,23 @@ CREATE TABLE chance (
     id_contract integer,
     closing_value numeric,
     closing_date timestamp(0) without time zone,
-    CONSTRAINT chance_pkey PRIMARY KEY (id)
+    CONSTRAINT chance_pkey PRIMARY KEY (id),
+    CONSTRAINT chance_chance_type_id_fkey FOREIGN KEY (service_type)
+        REFERENCES comercial.chance_type (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT chance_followup_id_fkey FOREIGN KEY (id_followup)
+        REFERENCES comercial.followup (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT chance_prospect_id_fkey FOREIGN KEY (id_prospect)
+        REFERENCES comercial.prospect (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT chance_service_id_fkey FOREIGN KEY (id_product)
+        REFERENCES comercial.service (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --
@@ -157,7 +173,11 @@ CREATE TABLE chance_closed (
     id_chance_classification integer,
     tag text,
     delta real,
-    CONSTRAINT chance_closed_pkey PRIMARY KEY (id)
+    CONSTRAINT chance_closed_pkey PRIMARY KEY (id),
+    CONSTRAINT chance_closed_chance_id_fkey FOREIGN KEY (chance_id)
+        REFERENCES comercial.chance (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --
@@ -172,7 +192,11 @@ CREATE TABLE chance_contact (
     email character varying(120),
     chance_id integer NOT NULL,
     warn boolean NOT NULL DEFAULT true,
-    CONSTRAINT chance_contact_pkey PRIMARY KEY (id)
+    CONSTRAINT chance_contact_pkey PRIMARY KEY (id),
+    CONSTRAINT chance_contact_chance_id_fkey FOREIGN KEY (chance_id)
+        REFERENCES comercial.chance (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --
@@ -186,7 +210,11 @@ CREATE TABLE chance_inactive (
     description text,
     record_date timestamp(0) without time zone DEFAULT now(),
     active boolean DEFAULT true,
-    CONSTRAINT chance_inactive_pkey PRIMARY KEY (id)
+    CONSTRAINT chance_inactive_pkey PRIMARY KEY (id),
+    CONSTRAINT chance_inactive_chance_id_fkey FOREIGN KEY (chance_id)
+        REFERENCES comercial.chance (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --
@@ -215,7 +243,11 @@ CREATE TABLE chance_indication (
     email character varying(200),
     id_chance integer,
     warn boolean DEFAULT false,
-    CONSTRAINT chance_indication_pkey PRIMARY KEY (id)
+    CONSTRAINT chance_indication_pkey PRIMARY KEY (id),
+    CONSTRAINT chance_indication_chance_id_fkey FOREIGN KEY (id_chance)
+        REFERENCES comercial.chance (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --
@@ -577,7 +609,11 @@ CREATE TABLE lost_action (
     parent_id integer,
     visible boolean,
     "select" boolean,
-    CONSTRAINT lost_action_pkey PRIMARY KEY (id)
+    CONSTRAINT lost_action_pkey PRIMARY KEY (id),
+    CONSTRAINT lost_action_lost_action_id_fkey FOREIGN KEY (parent_id)
+        REFERENCES comercial.lost_action (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --
@@ -592,7 +628,19 @@ CREATE TABLE lost_chance (
     date_record timestamp(0) without time zone DEFAULT now(),
     wallet integer,
     description text,
-    CONSTRAINT lost_chance_pkey PRIMARY KEY (id)
+    CONSTRAINT lost_chance_pkey PRIMARY KEY (id),
+    CONSTRAINT lost_chance_chance_id_fkey FOREIGN KEY (chance_id)
+        REFERENCES comercial.chance (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT lost_chance_lost_action_id_fkey FOREIGN KEY (lost_action_id)
+        REFERENCES comercial.lost_action (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT lost_chance_wallet_id_fkey FOREIGN KEY (wallet)
+        REFERENCES comercial.wallet (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --
@@ -1122,27 +1170,27 @@ CREATE TABLE type_thirdservice (
 
 CREATE TABLE viable (
     id serial NOT NULL,
-    lat character varying(100),
-    lon character varying(100),
-    cep character varying(100),
-    steet text,
-    number character varying(2044),
+    lat character varying(100) NOT NULL,
+    lon character varying(100) NOT NULL,
+    cep character varying(100) NOT NULL,
+    steet text NOT NULL,
+    number character varying(2044) NOT NULL,
     complement text,
-    viable boolean DEFAULT false,
+    viable boolean NOT NULL DEFAULT false,
     hash character varying(65),
-    uf character varying(2),
-    city integer,
-    active boolean,
-    viable_status integer,
-    date_record timestamp(0) without time zone,
-    author integer,
+    uf character varying(2) NOT NULL,
+    city integer NOT NULL,
+    active boolean NOT NULL DEFAULT true,
+    viable_status integer NOT NULL,
+    date_record timestamp(0) without time zone NOT NULL DEFAULT now(),
+    author integer NOT NULL,
     chance_id integer,
-    speed_type integer,
+    speed_type integer NOT NULL,
     min_activation numeric(12,2),
     min_monthly numeric(12,2),
-    district character varying,
-    speed integer,
-    interface integer,
+    district character varying NOT NULL,
+    speed integer NOT NULL,
+    interface integer NOT NULL,
     coords text,
     shadow_lpu_id integer,
     price_zone integer,
@@ -1150,14 +1198,14 @@ CREATE TABLE viable (
     fiber_unit character varying(10),
     cont_codigoid integer,
     next_viable_id integer,
-    latlon_manual boolean,
-    days_deadline integer,
+    latlon_manual boolean NOT NULL DEFAULT false,
+    days_deadline integer NOT NULL ,
     skip_engineer boolean,
     request_contract_deadline integer,
     request_contract_deadline_unit integer,
-    interface_real integer,
+    interface_real integer NOT NULL,
     comment text,
-    troca_endereco boolean,
+    troca_endereco boolean NOT NULL DEFAULT false,
     pair integer,
     capilares integer,
     comment_presale text,
@@ -1165,10 +1213,14 @@ CREATE TABLE viable (
     id_group_sva integer,
     network_type character varying,
     id_datacenter integer,
-    espaco_datacenter boolean DEFAULT false,
+    espaco_datacenter boolean NOT NULL DEFAULT false,
     delivery_place character varying,
     comment_voice text,
-    CONSTRAINT viable_pkey PRIMARY KEY (id)
+    CONSTRAINT viable_pkey PRIMARY KEY (id),
+    CONSTRAINT viabel_chance_id_fkey FOREIGN KEY (chance_id)
+        REFERENCES comercial.chance (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 );
 
 --

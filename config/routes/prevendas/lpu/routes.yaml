@@ -1,0 +1,50 @@
+post_lpu:
+    path: /
+    controller: 'App\Controller\Prevendas\LpuController::postLpu'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_lpu:
+    path: /{id}
+    controller: 'App\Controller\Prevendas\LpuController::getLpu'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_lpu:
+    path: /
+    controller: 'App\Controller\Prevendas\LpuController::getLpus'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_lpu:
+    path: /{id}
+    controller: 'App\Controller\Prevendas\LpuController::deleteLpu'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_lpu:
+    path: /{id}
+    controller: 'App\Controller\Prevendas\LpuController::putLpu'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_lpu:
+    path: /{id}
+    controller: 'App\Controller\Prevendas\LpuController::patchLpu'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

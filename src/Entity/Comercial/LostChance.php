@@ -30,13 +30,27 @@ class LostChance
     /**
      * @var int|null
      */
-    private $wallet;
+    private $walletId;
 
     /**
      * @var string|null
      */
     private $description;
-
+    
+    /**
+     * @var \App\Entity\Comercial\Chance
+     */
+    private $chance;
+    
+    /**
+     * @var \App\Entity\Comercial\Wallet
+     */
+    private $wallet;
+    
+    /**
+     * @var \App\Entity\Comercial\LostAction
+     */
+    private $lostAction;
 
     /**
      * Get id.
@@ -121,27 +135,27 @@ class LostChance
     }
 
     /**
-     * Set wallet.
+     * Set walletId.
      *
-     * @param int|null $wallet
+     * @param int|null $walletId
      *
      * @return LostChance
      */
-    public function setWallet($wallet = null)
+    public function setwalletId($walletId = null)
     {
-        $this->wallet = $wallet;
+        $this->walletId = $walletId;
 
         return $this;
     }
 
     /**
-     * Get wallet.
+     * Get walletId.
      *
      * @return int|null
      */
-    public function getWallet()
+    public function getwalletId()
     {
-        return $this->wallet;
+        return $this->walletId;
     }
 
     /**
@@ -166,5 +180,77 @@ class LostChance
     public function getDescription()
     {
         return $this->description;
+    }
+    
+    /**
+     * Set chance.
+     *
+     * @param \App\Entity\Comercial\Chance $chance
+     *
+     * @return LostChance
+     */
+    public function setChance(\App\Entity\Comercial\Chance $chance = null)
+    {
+        $this->chance = $chance;
+        
+        return $this;
+    }
+    
+    /**
+     * Get chance.
+     *
+     * @return \App\Entity\Comercial\Chance
+     */
+    public function getChance()
+    {
+        return $this->chance;
+    }
+    
+    /**
+     * Set wallet.
+     *
+     * @param \App\Entity\Comercial\Wallet $wallet
+     *
+     * @return LostChance
+     */
+    public function setWallet(\App\Entity\Comercial\Wallet $wallet = null)
+    {
+        $this->wallet = $wallet;
+        
+        return $this;
+    }
+    
+    /**
+     * Get wallet.
+     *
+     * @return \App\Entity\Comercial\Wallet
+     */
+    public function getWallet()
+    {
+        return $this->wallet;
+    }
+    
+    /**
+     * Set lostAction.
+     *
+     * @param \App\Entity\Comercial\LostAction $lostAction
+     *
+     * @return LostChance
+     */
+    public function setLostAction(\App\Entity\Comercial\LostAction $lostAction = null)
+    {
+        $this->lostAction = $lostAction;
+        
+        return $this;
+    }
+    
+    /**
+     * Get lostAction.
+     *
+     * @return \App\Entity\Comercial\Wallet
+     */
+    public function getLostAction()
+    {
+        return $this->lostAction;
     }
 }

@@ -1,0 +1,57 @@
+App\Entity\Engenharia\Location:
+    type: entity
+    table: engenharia.location
+    indexes:
+        IDX_E6967BD64D218E:
+            columns:
+                - location_id
+        IDX_E6967BDC028CEA2:
+            columns:
+                - point_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        latitude:
+            type: decimal
+            nullable: true
+            precision: 25
+            scale: 20
+        longitude:
+            type: decimal
+            nullable: true
+            precision: 25
+            scale: 20
+        radius:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        location:
+            targetEntity: App\Entity\Engenharia\Location
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                location_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        point:
+            targetEntity: App\Entity\Engenharia\Point
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                point_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

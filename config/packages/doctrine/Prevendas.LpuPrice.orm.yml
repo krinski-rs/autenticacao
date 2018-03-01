@@ -1,0 +1,31 @@
+App\Entity\Prevendas\LpuPrice:
+    type: entity
+    table: prevendas.lpu_price
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        regionId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: region_id
+        price:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

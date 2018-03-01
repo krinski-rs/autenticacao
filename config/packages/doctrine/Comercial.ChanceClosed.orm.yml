@@ -1,6 +1,10 @@
 App\Entity\Comercial\ChanceClosed:
     type: entity
     table: comercial.chance_closed
+    indexes:
+        fki_chance_closed_chance_id_fkey:
+            columns:
+                - chance_id
     id:
         id:
             type: integer

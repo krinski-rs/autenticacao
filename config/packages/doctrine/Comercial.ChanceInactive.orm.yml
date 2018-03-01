@@ -1,6 +1,10 @@
 App\Entity\Comercial\ChanceInactive:
     type: entity
     table: comercial.chance_inactive
+    indexes:
+        fki_chance_inactive_chance_id_fkey:
+            columns:
+                - chance_id
     id:
         id:
             type: integer
@@ -34,4 +38,15 @@ App\Entity\Comercial\ChanceInactive:
             nullable: true
             options:
                 default: true
+    manyToOne:
+        chance:
+            targetEntity: App\Entity\Comercial\Chance
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                chance_id:
+                    referencedColumnName: id
+            orphanRemoval: false
     lifecycleCallbacks: {  }

@@ -1,0 +1,50 @@
+App\Entity\Prevendas\LpuPlan:
+    type: entity
+    table: prevendas.lpu_plan
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        lpuId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: lpu_id
+        planId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: plan_id
+        activationFare:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: activation_fare
+        monthlyCost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: monthly_cost
+        franchiseCost:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: franchise_cost
+        discountIpc:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 2
+            column: discount_ipc
+    lifecycleCallbacks: {  }

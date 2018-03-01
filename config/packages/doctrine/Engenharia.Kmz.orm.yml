@@ -1,0 +1,114 @@
+App\Entity\Engenharia\Kmz:
+    type: entity
+    table: engenharia.kmz
+    indexes:
+        IDX_F0FFF6A3DB472163:
+            columns:
+                - kmz_file_id
+        IDX_F0FFF6A3C54C8C93:
+            columns:
+                - type_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        latitude:
+            type: decimal
+            nullable: true
+            precision: 25
+            scale: 20
+        longitude:
+            type: decimal
+            nullable: true
+            precision: 25
+            scale: 20
+        active:
+            type: boolean
+            nullable: true
+        color:
+            type: string
+            nullable: true
+            length: 6
+            options:
+                fixed: true
+        dateValid:
+            type: datetime
+            nullable: true
+            column: date_valid
+        maxSpeed:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: max_speed
+        radius:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        interface:
+            type: string
+            nullable: true
+            length: 3
+            options:
+                fixed: true
+        prox:
+            type: boolean
+            nullable: true
+        error:
+            type: boolean
+            nullable: true
+        tipoArquivo:
+            type: string
+            nullable: true
+            length: 15
+            options:
+                fixed: true
+            column: tipo_arquivo
+        coordenadasPoligono:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+            column: coordenadas_poligono
+        activationDeadline:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: activation_deadline
+    manyToOne:
+        kmzFile:
+            targetEntity: App\Entity\Engenharia\KmzFile
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                kmz_file_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        type:
+            targetEntity: App\Entity\Engenharia\Type
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                type_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -70,7 +70,7 @@ class Viable
     /**
      * @var int|null
      */
-    private $viableStatus;
+    private $viableStatusId;
 
     /**
      * @var \DateTime|null
@@ -241,6 +241,16 @@ class Viable
      * @var string|null
      */
     private $commentVoice;
+
+    /**
+     * @var \App\Entity\Comercial\ViableStatus
+     */
+    private $viableStatus;
+
+    /**
+     * @var \App\Entity\Comercial\Chance
+     */
+    private $chance;
 
 
     /**
@@ -518,27 +528,27 @@ class Viable
     }
 
     /**
-     * Set viableStatus.
+     * Set viableStatusId.
      *
-     * @param int|null $viableStatus
+     * @param int|null $viableStatusId
      *
      * @return Viable
      */
-    public function setViableStatus($viableStatus = null)
+    public function setViableStatusId($viableStatusId = null)
     {
-        $this->viableStatus = $viableStatus;
+        $this->viableStatusId = $viableStatusId;
 
         return $this;
     }
 
     /**
-     * Get viableStatus.
+     * Get viableStatusId.
      *
      * @return int|null
      */
-    public function getViableStatus()
+    public function getViableStatusId()
     {
-        return $this->viableStatus;
+        return $this->viableStatusId;
     }
 
     /**
@@ -1355,5 +1365,53 @@ class Viable
     public function getCommentVoice()
     {
         return $this->commentVoice;
+    }
+
+    /**
+     * Set viableStatus.
+     *
+     * @param ViableStatus $viableStatus
+     *
+     * @return Viable
+     */
+    public function setViableStatus(\App\Entity\Comercial\ViableStatus $viableStatus = null)
+    {
+        $this->viableStatus = $viableStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get viableStatus.
+     * 
+     * @return \App\Entity\Comercial\ViableStatus
+     */
+    public function getViableStatus()
+    {
+        return $this->viableStatus;
+    }
+
+    /**
+     * Set chance.
+     *
+     * @param Chance $chance
+     *
+     * @return Viable
+     */
+    public function setChance(\App\Entity\Comercial\Chance $chance = null)
+    {
+        $this->chance = $chance;
+
+        return $this;
+    }
+
+    /**
+     * Get chance.
+     * 
+     * @return \App\Entity\Comercial\Chance
+     */
+    public function getChance()
+    {
+        return $this->chance;
     }
 }

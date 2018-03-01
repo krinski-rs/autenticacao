@@ -1,0 +1,50 @@
+post_regra:
+    path: /
+    controller: 'App\Controller\Autorizacao\RegraController::postRegra'
+    methods: [POST]
+    defaults:
+        _format: json
+        
+get_regra:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\RegraController::getRegra'
+    methods: [GET]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+list_regra:
+    path: /
+    controller: 'App\Controller\Autorizacao\RegraController::getRegras'
+    methods: [GET]
+    defaults:
+        _format: json
+        
+delete_regra:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\RegraController::deleteRegra'
+    methods: [DELETE]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+put_regra:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\RegraController::putRegra'
+    methods: [PUT]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
+patch_regra:
+    path: /{id}
+    controller: 'App\Controller\Autorizacao\RegraController::patchRegra'
+    methods: [PATCH]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        

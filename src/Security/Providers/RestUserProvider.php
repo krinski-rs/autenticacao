@@ -7,12 +7,20 @@ use App\Security\Users\RestUser;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
-use App\Entity\Autorizacao\Usuarios;
+use App\Entity\Autorizacao\Usuario;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class RestUserProvider implements UserProviderInterface
 {
     private $objRepository = NULL;
-
+    
+    public function __construct(Registry $objRegistry)
+    {
+        $objEntityManager = $objRegistry->getManager('trouble');
+        $this->objRepository = $objEntityManager->getRepository('App\Entity\Autorizacao\Usuario');
+        
+    }
+    
     public function setRepository(UserLoaderInterface $objUserLoaderInterface)
     {
         $this->objRepository = $objUserLoaderInterface;
@@ -20,13 +28,11 @@ class RestUserProvider implements UserProviderInterface
     
     public function supportsClass($class)
     {
-        exit('supportsClass');
         return RestUser::class === $class;
     }
 
     public function refreshUser(UserInterface $objUserInterface)
     {
-         exit('refreshUser');
        if(!$objUserInterface instanceof RestUser){
             throw new UnsupportedUserException(
                 sprintf('Instances of "%s" are not supported.', get_class($objUserInterface))
@@ -37,8 +43,11 @@ class RestUserProvider implements UserProviderInterface
 
     public function loadUserByUsername($username)
     {
+        /*
+         * buscar o usuario de onde estiver da forma que achar melhor
+         */
         $objUsuarios = $this->objRepository->loadUserByUsername($username);
-        if($objUsuarios instanceof Usuarios){
+        if($objUsuarios instanceof Usuario){
             $objRestUser = new RestUser();
             $objRestUser->setPassword($objUsuarios->getPassword());
             $objRestUser->setSalt($objUsuarios->getSalt());
@@ -46,12 +55,5 @@ class RestUserProvider implements UserProviderInterface
             return $objRestUser;
         }
         throw new UsernameNotFoundException( sprintf('Username "%s" does not exist.', $username) );
-        /*
-         * buscar o usuario de onde estiver da foma que achar melhor
-         * exit('loadUserByUsername');
-         * throw new UsernameNotFoundException( sprintf('Username "%s" does not exist.', $username) );
-         */
-//         return new RestUser();
     }
 }
-

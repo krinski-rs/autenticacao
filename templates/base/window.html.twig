@@ -1,0 +1,8 @@
+				<div id="{{ window.id }}" class="abs window">
+{% if attribute(window, 'window_inner') is defined %}
+{% set window_inner = window.window_inner %}
+{% embed "base/window_inner.html.twig" %}
+{% endembed %}
+{% endif %}
+					<span class="abs ui-resizable-handle ui-resizable-se"></span>
+				</div>

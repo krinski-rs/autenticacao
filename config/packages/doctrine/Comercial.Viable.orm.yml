@@ -13,31 +13,31 @@ App\Entity\Comercial\Viable:
     fields:
         lat:
             type: string
-            nullable: true
+            nullable: false
             length: 100
             options:
                 fixed: false
         lon:
             type: string
-            nullable: true
+            nullable: false
             length: 100
             options:
                 fixed: false
         cep:
             type: string
-            nullable: true
+            nullable: false
             length: 100
             options:
                 fixed: false
         steet:
             type: text
-            nullable: true
+            nullable: false
             length: null
             options:
                 fixed: false
         number:
             type: string
-            nullable: true
+            nullable: false
             length: 2044
             options:
                 fixed: false
@@ -49,7 +49,7 @@ App\Entity\Comercial\Viable:
                 fixed: false
         viable:
             type: boolean
-            nullable: true
+            nullable: false
             options:
                 default: false
         hash:
@@ -60,31 +60,31 @@ App\Entity\Comercial\Viable:
                 fixed: false
         uf:
             type: string
-            nullable: true
+            nullable: false
             length: 2
             options:
                 fixed: false
         city:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
         active:
             type: boolean
-            nullable: true
-        viableStatus:
+            nullable: false
+        viableStatusId:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
             column: viable_status
         dateRecord:
             type: datetime
-            nullable: true
+            nullable: false
             column: date_record
         author:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
         chanceId:
@@ -95,7 +95,7 @@ App\Entity\Comercial\Viable:
             column: chance_id
         speedType:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
             column: speed_type
@@ -113,18 +113,18 @@ App\Entity\Comercial\Viable:
             column: min_monthly
         district:
             type: string
-            nullable: true
+            nullable: false
             length: null
             options:
                 fixed: false
         speed:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
         interface:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
         coords:
@@ -172,7 +172,7 @@ App\Entity\Comercial\Viable:
             column: next_viable_id
         latlonManual:
             type: boolean
-            nullable: true
+            nullable: false
             column: latlon_manual
         daysDeadline:
             type: integer
@@ -182,7 +182,7 @@ App\Entity\Comercial\Viable:
             column: days_deadline
         skipEngineer:
             type: boolean
-            nullable: true
+            nullable: false
             column: skip_engineer
         requestContractDeadline:
             type: integer
@@ -198,7 +198,7 @@ App\Entity\Comercial\Viable:
             column: request_contract_deadline_unit
         interfaceReal:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
             column: interface_real
@@ -210,7 +210,7 @@ App\Entity\Comercial\Viable:
                 fixed: false
         trocaEndereco:
             type: boolean
-            nullable: true
+            nullable: false
             column: troca_endereco
         pair:
             type: integer
@@ -256,7 +256,7 @@ App\Entity\Comercial\Viable:
             column: id_datacenter
         espacoDatacenter:
             type: boolean
-            nullable: true
+            nullable: false
             options:
                 default: false
             column: espaco_datacenter
@@ -274,4 +274,25 @@ App\Entity\Comercial\Viable:
             options:
                 fixed: false
             column: comment_voice
+    manyToOne:
+        viableStatus:
+            targetEntity: App\Entity\Comercial\ViableStatus
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                viable_status:
+                    referencedColumnName: id
+            orphanRemoval: false
+        chance:
+            targetEntity: App\Entity\Comercial\Chance
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: viable
+            joinColumns:
+                chance_id:
+                    referencedColumnName: id
+            orphanRemoval: false
     lifecycleCallbacks: {  }

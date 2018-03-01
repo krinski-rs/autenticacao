@@ -1,10 +1,19 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
 troubleticket:
-    prefix: /troubleticket
+    prefix: /api/troubleticket
     resource: './routes/troubleticket/routes.yaml'
 comercial:
-    prefix: /comercial
+    prefix: /api/comercial
     resource: './routes/comercial/routes.yaml'
+engenharia:
+    prefix: /api/engenharia
+    resource: './routes/engenharia/routes.yaml'
+prevendas:
+    prefix: /api/prevendas
+    resource: './routes/prevendas/routes.yaml'
+autorizacao:
+    prefix: /api/autorizacao
+    resource: './routes/autorizacao/routes.yaml'
+home:
+    prefix: /
+    resource: './routes/home/routes.yaml'
     

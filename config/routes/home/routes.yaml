@@ -1,0 +1,27 @@
+login:
+    path: /login
+    controller: 'App\Controller\Home\IndexController::login'
+    methods: [GET]
+    defaults:
+        _format: html
+        
+login_check:
+    path:     /login_check
+    controller: 'App\Controller\Home\IndexController::loginCheck'
+
+logout:
+    path:     /logout
+    controller: 'App\Controller\Home\IndexController::logout'
+    
+registration:
+    path:     /register
+    controller: 'App\Controller\Home\IndexController::register'
+    
+home:
+    path:     /home
+    controller: 'App\Controller\Home\IndexController::home'
+
+index:
+    path: /
+    controller: 'App\Controller\Home\IndexController::home'
+        

@@ -1,0 +1,19 @@
+{% block window_inner %}
+{% if attribute(_context, 'window_inner') is defined %}
+					<div class="abs window_inner">
+{% if attribute(window_inner, 'window_top') is defined %}
+{% set window_top = window_inner.window_top %}
+{% embed "base/window_top.html.twig" %}
+{% endembed %}
+{% endif %}
+{% if attribute(window_inner, 'window_content') is defined %}
+{% set window_content = window_inner.window_content %}
+{% embed "base/window_content.html.twig" %}
+{% endembed %}
+{% endif %}
+{% if attribute(window_inner, 'text') is defined %}
+						<div class="abs window_bottom">{{ window_inner.text|raw }}</div>
+{% endif %}
+					</div>
+{% endif %}
+{% endblock %}

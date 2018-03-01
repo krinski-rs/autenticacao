@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="description" content="JavaScript desktop environment built with jQuery." />
+		<title>{{ title }}</title>
+		<!--[if lt IE 7]>
+		<script>
+			window.top.location = 'http://127.0.0.1:8000/ie.html';
+		</script>
+		<![endif]-->
+		<link rel="stylesheet" href="{{ asset('css/jquery/desktop/reset.css') }}" />
+		<link rel="stylesheet" href="{{ asset('css/jquery/desktop/desktop.css') }}" />
+		<!--[if lt IE 9]>
+		<link rel="stylesheet" href="{{ asset('css/jquery/desktop/ie.css') }}" />
+		<![endif]-->
+		{% block stylesheets %}
+		{% endblock %}
+	</head>
+	<body>
+		<div class="abs" id="wrapper">
+{% embed "base/desktop.html.twig" %}
+{% endembed %}
+{% embed "base/bar_top.html.twig" %}
+{% endembed %}
+{% embed "base/bar_bottom.html.twig" %}
+{% endembed %}
+		</div>
+		<script src="{{ asset('js/jquery/jquery.js') }}"></script>
+		<script src="{{ asset('js/jquery/ui/jquery-ui.js') }}"></script>
+		<script src="{{ asset('js/jquery/desktop/desktop.js') }}"></script>
+		{% block javascripts %}
+		{% endblock %}
+	</body>
+</html>

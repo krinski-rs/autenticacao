@@ -1,0 +1,51 @@
+App\Entity\Prevendas\QuotationAddress:
+    type: entity
+    table: prevendas.quotation_address
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        cep:
+            type: string
+            nullable: true
+            length: 8
+            options:
+                fixed: false
+        street:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        number:
+            type: string
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        lat:
+            type: decimal
+            nullable: true
+            precision: 15
+            scale: 10
+        lon:
+            type: decimal
+            nullable: true
+            precision: 15
+            scale: 10
+        quotationId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: quotation_id
+        selecao:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }
