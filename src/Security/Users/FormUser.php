@@ -4,7 +4,7 @@ namespace App\Security\Users;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Doctrine\Common\Collections\Collection;
-use App\Util\Regra\Permissao;
+use App\Util\Traits\Regra\Permissao;
 
 class FormUser implements UserInterface, EquatableInterface
 {
@@ -13,7 +13,7 @@ class FormUser implements UserInterface, EquatableInterface
     private $salt = NULL;
     private $username = NULL;
     private $password = NULL;
-    private $arrayRules = [];
+    private $arrayRoles = [];
     
     public function eraseCredentials()
     {
@@ -31,8 +31,8 @@ class FormUser implements UserInterface, EquatableInterface
                     reset($rules);
                     while($rule = current($rules)){
                         $rule = $regra.$rule;
-                        if(!in_array(mb_strtoupper($rule), $this->arrayRules)){
-                            $this->arrayRules[] = mb_strtoupper($rule);
+                        if(!in_array(mb_strtoupper($rule), $this->arrayRoles)){
+                            $this->arrayRoles[] = mb_strtoupper($rule);
                         }
                         next($rules);
                     }
@@ -40,14 +40,14 @@ class FormUser implements UserInterface, EquatableInterface
                 $objArrayCollection->next();
             }
         }
-        if(count($this->arrayRules)){
-            $this->arrayRules[] = 'ROLE_USER';
+        if(count($this->arrayRoles)){
+            $this->arrayRoles[] = 'ROLE_USER';
         }
     }
 
     public function getRoles()
     {
-        return $this->arrayRules;
+        return $this->arrayRoles;
     }
     
     public function isEqualTo(UserInterface $objUserInterface)

@@ -1,5 +1,5 @@
 <?php
-namespace App\Util\Regra;
+namespace App\Util\Traits\Regra;
 
 trait Permissao
 {
@@ -25,5 +25,10 @@ trait Permissao
             $nivel[] = '_DELETE';
         
         return $nivel;
+    }
+    
+    public function hasPermissao(array $arrayUserRoles, array $arrayRoles)
+    {
+        return (count(array_intersect($arrayUserRoles, $arrayRoles)) ? true : false);
     }
 }

@@ -3,7 +3,23 @@ namespace App\Controller\Home;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use App\Util\Desktop\BarTop;
+use App\Util\Desktop\BarTop\BarTop;
+use App\Util\Desktop\Desktop;
+use App\Util\Desktop\Icon;
+use App\Util\Desktop\Dock;
+use App\Util\Desktop\WindowTop;
+use App\Util\Desktop\FloatLeft;
+use App\Util\Desktop\FloatRight;
+use App\Util\Desktop\Window;
+use App\Util\Desktop\WindowContent;
+use App\Util\Desktop\Table\Table;
+use App\Util\Desktop\Table\Head;
+use App\Util\Desktop\Table\Tr;
+use App\Util\Desktop\Table\Th;
+use App\Util\Desktop\Table\Body;
+use App\Util\Desktop\Table\Td;
+use App\Util\Desktop\WindowInner;
+use App\Util\Desktop\Page;
 
 class IndexController extends Controller
 {
@@ -40,259 +56,105 @@ class IndexController extends Controller
         if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $this->redirect($this->generateUrl('login'));
         }
+        
+        $pathMenu = $this->get('kernel')->getRootDir().'/../config/menu/menu.yaml';
+        
+        $objDesktop = new Desktop($this->getUser(), 'Compra Ágil');
+        $objIcon1 = new Icon();
+        $objIcon1->setHref('#icon_dock_computer');
+        $objIcon1->setLeft(20);
+        $objIcon1->setSrc('../css/jquery/desktop/images/icons/icon_32_addgroup.png');
+        $objIcon1->setTex('Permissão');
+        $objIcon1->setTop(20);
+        $objDesktop->addIcon($objIcon1);
+        
+        $objDock1 = new Dock();
+        $objDock1->setHref('#window_computer');
+        $objDock1->setId('icon_dock_computer');
+        $objDock1->setSrc('../css/jquery/desktop/images/icons/icon_22_addgroup.png');
+        $objDock1->setTex('Permissão');
+        
+        $objFloatLeft = new FloatLeft();
+        $objFloatLeft->setImage('<img src="../css/jquery/desktop/images/icons/icon_16_addgroup.png" />');
+        $objFloatLeft->setText('Permissão');
+        $objFloatRight = new FloatRight();
+        $objFloatRight->setHref('icon_dock_computer');
+        $objWindowTop = new WindowTop();
+        $objWindowTop->setFloatLeft($objFloatLeft);
+        $objWindowTop->setFloatRight($objFloatRight);
+        
         $objBarTop = new BarTop($this->getUser());
-        return $this->render('base/base.html.twig',  [
-            'title' => "Compra Ágil",
-            'desktop' => [
-                'icons' => [
-                    [
-                        'left' => 20,
-                        'top' => 20,
-                        'href' => '#icon_dock_computer',
-                        'src' => '../css/jquery/desktop/images/icons/icon_32_addgroup.png',
-                        'text' => 'Permissão'
-                    ],
-                    [
-                        'left' => 20,
-                        'top' => 100,
-                        'href' => '#icon_dock_drive',
-                        'src' => '../css/jquery/desktop/images/icons/icon_32_drive.png',
-                        'text' => 'Hard Drive'
-                    ]
-                ],
-                'windows' => [
-                    [
-                        'id' => 'window_computer',
-                        'window_inner' => [
-                            'text' => 'Build: TK421',
-                            'window_top' => [
-                                'float_left'=> [
-                                    'text' => 'Computer 11',
-                                    'image' => '<img src="../css/jquery/desktop/images/icons/icon_16_addgroup.png" />'
-                                ],
-                                'float_right'=> [
-                                    'href' => 'icon_dock_computer'
-                                ],
-                            ],
-                            'window_content' => [
-                                'text'=> 'Hello. You look nice today!',
-                                'table'=> [
-                                    'thead' => [
-                                        [
-                                            [
-                                                'class' => 'shrink',
-                                                'text' => '&nbsp;'
-                                            ],
-                                            ['text' => 'Name'],
-                                            ['text' => 'Date Modified'],
-                                            ['text' => 'Date Created'],
-                                            ['text' => 'Size'],
-                                            ['text' => 'Kind']
-                                        ]
-                                    ],
-                                    'tbody' => [
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_drive.png" />'],
-                                            ['text' => 'Hard Drive'],
-                                            ['text' => 'Today'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '200 GB'],
-                                            ['text' => 'Volume']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_disc.png" />'],
-                                            ['text' => 'Audio CD'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '2.92 GB'],
-                                            ['text' => 'Media']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_network.png" />'],
-                                            ['text' => 'Network'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'LAN']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_folder_remote.png" />'],
-                                            ['text' => 'Shared Project Files'],
-                                            ['text' => 'Yesterday'],
-                                            ['text' => '12/29/08'],
-                                            ['text' => '524 MB'],
-                                            ['text' => 'Folder']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_documents.png" />'],
-                                            ['text' => 'Documents'],
-                                            ['text' => 'Yesterday'],
-                                            ['text' => '12/29/08'],
-                                            ['text' => '524 MB'],
-                                            ['text' => 'Folder']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_system.png" />'],
-                                            ['text' => 'Preferences'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'System']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_trash.png" />'],
-                                            ['text' => 'Trash'],
-                                            ['text' => 'Today'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'Bin']
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    [
-                        'id' => 'window_drive',
-                        'window_inner' => [
-                            'text' => 'Free: 80.9 GB',
-                            'window_top' => [
-                                'float_left'=> [
-                                    'text' => 'Hard Drive',
-                                    'image' => '<img src="../css/jquery/desktop/images/icons/icon_16_drive.png" />'
-                                ],
-                                'float_right'=> [
-                                    'href' => 'icon_dock_drive'
-                                ],
-                            ],
-                            'window_content' => [
-                                'text'=> 'Storage in use: 119.1 GB',
-                                'table'=> [
-                                    'thead' => [
-                                        [
-                                            [
-                                                'class' => 'shrink',
-                                                'text' => '&nbsp;'
-                                            ],
-                                            ['text' => 'Name'],
-                                            ['text' => 'Date Modified'],
-                                            ['text' => 'Date Created'],
-                                            ['text' => 'Size'],
-                                            ['text' => 'Kind']
-                                        ]
-                                    ],
-                                    'tbody' => [
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_page.png" />'],
-                                            ['text' => '.DS_Store'],
-                                            ['text' => 'Yesterday'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '6 KB'],
-                                            ['text' => 'Hidden']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_folder_home.png" />'],
-                                            ['text' => 'Default User'],
-                                            ['text' => 'Today'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'Folder']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_folder.png" />'],
-                                            ['text' => 'Applications'],
-                                            ['text' => 'Yesterday'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'Folder']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_folder.png" />'],
-                                            ['text' => 'Developer'],
-                                            ['text' => '12/29/08'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'Folder']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_folder.png" />'],
-                                            ['text' => 'Library'],
-                                            ['text' => '09/11/09'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'Folder']
-                                        ],
-                                        [
-                                            ['text' => '<img src="../css/jquery/desktop/images/icons/icon_16_folder.png" />'],
-                                            ['text' => 'System'],
-                                            ['text' => 'Yesterday'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => '&mdash;'],
-                                            ['text' => 'Folder']
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            ],
-            'dock' => [
-                [
-                    'id' => 'icon_dock_computer',
-                    'href' => '#window_computer',
-                    'src' => '../css/jquery/desktop/images/icons/icon_22_addgroup.png',
-                    'text' => 'Computer'
-                ],
-                [
-                    'id' => 'icon_dock_drive',
-                    'href' => '#window_drive',
-                    'src' => '../css/jquery/desktop/images/icons/icon_22_drive.png',
-                    'text' => 'Hard Drive'
-                ]
-            ],
-            'bar_top' => [
-                [
-                    'href' => '#',
-                    'text' => 'Market Sales Domain',//Domínio de vendas no mercado
-                    'ul'=> []
-                ],
-                [
-                    'href' => '#',
-                    'text' => 'Product Domain',//Domínio do Produto
-                    'ul'=> []
-                ],
-                [
-                    'href' => '#',
-                    'text' => 'Customer Domain',//Domínio do Cliente
-                    'ul'=> []
-                ],
-                [
-                    'href' => '#',
-                    'text' => 'Service Domain',//Domínio de Serviço
-                    'ul'=> []
-                ],
-                [
-                    'href' => '#',
-                    'text' => 'Resource Domain',//Domínio de Recursos
-                    'ul'=> []
-                ],
-                [
-                    'href' => '#',
-                    'text' => 'Engaged Party Domain',//Domínio do grupo contratado
-                    'ul'=> []
-                ],
-                [
-                    'href' => '#',
-                    'text' => 'Enterprise Domain',//Domínio Empresarial
-                    'ul'=> []
-                ],
-                [
-                    'href' => '#',
-                    'text' => 'Common Process Patterns Domain',//Padrões comuns de processos
-                    'ul'=> []
-                ]
-            ]
-        ]);
+        $objBarTop->createMenuFromFile($pathMenu);
+        
+        
+        $objWindowContent = new WindowContent();
+        $objWindowContent->getText('Hello. You look nice today!');
+        
+        $objTable = new Table();
+        
+        $objHead = new Head();
+        $objTr = new Tr();
+        $objTr->addTh(new Th('shrink', '&nbsp;'));
+        $objTr->addTh(new Th(NULL, 'Name'));
+        $objTr->addTh(new Th(NULL, 'Date Modified'));
+        $objTr->addTh(new Th(NULL, 'Date Created'));
+        $objTr->addTh(new Th(NULL, 'Size'));
+        $objTr->addTh(new Th(NULL, 'Kind'));
+        
+        $objHead->addTr($objTr);
+        $objTable->setHead($objHead);
+        
+        $objBody = new Body();
+        $objTr2 = new Tr();
+        $objTr2->addTd(new Td(NULL, '<img src="../css/jquery/desktop/images/icons/icon_16_drive.png" />'));
+        $objTr2->addTd(new Td(NULL, 'Hard Drive'));
+        $objTr2->addTd(new Td(NULL, 'Today'));
+        $objTr2->addTd(new Td(NULL, '&mdash;'));
+        $objTr2->addTd(new Td(NULL, '200 GB'));
+        $objTr2->addTd(new Td(NULL, 'Volume'));
+        $objBody->addTr($objTr2);
+        
+        $objTr3 = new Tr();
+        $objTr3->addTd(new Td(NULL, '<img src="../css/jquery/desktop/images/icons/icon_16_disc.png" />'));
+        $objTr3->addTd(new Td(NULL, 'Audio CD'));
+        $objTr3->addTd(new Td(NULL, '&mdash;'));
+        $objTr3->addTd(new Td(NULL, '&mdash;'));
+        $objTr3->addTd(new Td(NULL, '2.92 GB'));
+        $objTr3->addTd(new Td(NULL, 'Media'));
+        $objBody->addTr($objTr3);
+        
+        $objTr4 = new Tr();
+        $objTr4->addTd(new Td(NULL, '<img src="../css/jquery/desktop/images/icons/icon_16_network.png" />'));
+        $objTr4->addTd(new Td(NULL, 'Network'));
+        $objTr4->addTd(new Td(NULL, '&mdash;'));
+        $objTr4->addTd(new Td(NULL, '&mdash;'));
+        $objTr4->addTd(new Td(NULL, '&mdash;'));
+        $objTr4->addTd(new Td(NULL, 'LAN'));
+        $objBody->addTr($objTr4);
+        
+        $objTable->setBody($objBody);
+        
+        $objWindowContent->setTable($objTable);
+        
+        $objWindowContent->setText('Hello. You look nice today');
+        
+        $objWindowInner = new WindowInner('Build: TK421');
+        
+        $objWindowInner->setWindowTop($objWindowTop);
+        $objWindowInner->setWindowContent($objWindowContent);
+        
+        $objWindow = new Window('window_computer');
+        $objWindow->setWindowInner($objWindowInner);
+        
+        $objDesktop->addWindow($objWindow);
+        
+        $objPage = new Page($this->getUser());
+        
+        $objPage->addDock($objDock1);
+        $objPage->setTitle("Compra Ágil");
+        $objPage->setDesktop($objDesktop);
+        $objPage->setBarTop($objBarTop);
+        
+        return $this->render('base/base.html.twig',  $objPage->getArray());
     }
 }

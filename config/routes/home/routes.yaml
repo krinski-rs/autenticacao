@@ -20,4 +20,8 @@ registration:
 home:
     path:     /home
     controller: 'App\Controller\Home\IndexController::home'
+
+index:
+    path: /
+    controller: 'App\Controller\Home\IndexController::home'
         

@@ -1,0 +1,25 @@
+troubleticket:
+    roles: [ROLE_USER]
+    href: /troubleticke
+    text: TroubleTicket
+    children: {  }
+comercial:
+    roles: [ROLE_USER]
+    href: /comercial
+    text: Comercial
+    children: {  }
+engenharia:
+    roles: [ROLE_USER]
+    href: /engenharia
+    text: Engenharia
+    children: {  }
+prevendas:
+    roles: [ROLE_USER]
+    href: /prevendas
+    text: Prevendas
+    children: {  }
+autorizacao:
+    roles: [ROLE_USER]
+    href: /autorizacao
+    text: Autorizacao
+    children: {  }

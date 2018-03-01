@@ -6,9 +6,7 @@
 										<tr>
 {% if tr|length >= 1 %}
 {% for th in tr %}
-											<th{{ attribute(th, 'class') is defined ? ' class="' ~ th.class ~ '" ' : '' }}>
-												{{ attribute(th, 'text') is defined ? th.text|raw : '&nbsp;'|raw }}
-											</th>
+											<th{{ attribute(th, 'class') is defined ? ' class="' ~ th.class ~ '" ' : '' }}>{{ attribute(th, 'text') is defined ? th.text|raw : '&nbsp;'|raw }}</th>
 {% endfor %}
 {% endif %}
 										</tr>
@@ -21,9 +19,7 @@
 										<tr>
 {% if tr|length >= 1 %}
 {% for td in tr %}
-											<td{{ attribute(td, 'class') is defined ? 'class="' ~ td.class ~ '"' : '' }}>
-												{{ attribute(td, 'text') is defined ? td.text|raw : '&nbsp;'|raw }}
-											</td>
+											<td{{ attribute(td, 'class') is defined ? 'class="' ~ td.class ~ '"' : '' }}>{{ attribute(td, 'text') is defined ? td.text|raw : '&nbsp;'|raw }}</td>
 {% endfor %}
 {% endif %}
 										</tr>
