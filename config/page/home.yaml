@@ -1,0 +1,14 @@
+comercial_lpu:
+    roles: [PREVENDAS_LPU_VIEW]
+    image_icon: 'css/jquery/desktop/images/icons/icon_32_folder.png'
+    image_doc: 'css/jquery/desktop/images/icons/icon_22_folder.png'
+    image_window: 'css/jquery/desktop/images/icons/icon_16_folder.png'
+    name: 'Lista de LPU'
+    
+comercial_lpu23:
+    roles: [PREVENDAS_LPU_VIEW]
+    image_icon: 'css/jquery/desktop/images/icons/icon_32_addgroup.png'
+    image_doc: 'css/jquery/desktop/images/icons/icon_22_addgroup.png'
+    image_window: 'css/jquery/desktop/images/icons/icon_16_addgroup.png'
+    name: 'Lista de LPU33'
+        

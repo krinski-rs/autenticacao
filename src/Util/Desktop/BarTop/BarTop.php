@@ -12,11 +12,13 @@ class BarTop implements \Serializable
     
     private $objUserInterface = NULL;
     private $arrayMenu = [];
-    public function __construct(UserInterface $objUserInterface)
+    private $pathMenu = NULL;
+    public function __construct(UserInterface $objUserInterface, string $pathMenu)
     {
         try {
             $this->objUserInterface = $objUserInterface;
             $this->arrayMenu  = new \SplQueue();
+            $this->pathMenu = $pathMenu;
         } catch (\Exception $e) {
             throw $e;
         }
@@ -41,10 +43,10 @@ class BarTop implements \Serializable
         }
     }
     
-    public function createMenuFromFile(string $pathMenu){
+    public function createMenu(){
         try {
             $arrayUserRoles = $this->objUserInterface->getRoles();
-            $arrayMenu  = Yaml::parseFile($pathMenu);
+            $arrayMenu  = Yaml::parseFile($this->pathMenu);
             if(count($arrayMenu)){
                 reset($arrayMenu);
                 while($menu = current($arrayMenu)){

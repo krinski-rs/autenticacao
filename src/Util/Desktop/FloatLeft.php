@@ -4,11 +4,11 @@ namespace App\Util\Desktop;
 class FloatLeft implements \Serializable
 {
     private $text   = NULL;
-    private $image  = NULL;
+    private $src  = NULL;
     
-    public function __construct(string $image = '', string $text = '')
+    public function __construct(string $src = '', string $text = '')
     {
-        $this->image    = $image;
+        $this->src    = $src;
         $this->text     = $text;
     }
     
@@ -23,9 +23,9 @@ class FloatLeft implements \Serializable
     /**
      * @return string
      */
-    public function getImage()
+    public function getSrc()
     {
-        return $this->image;
+        return $this->src;
     }
     
     /**
@@ -37,17 +37,17 @@ class FloatLeft implements \Serializable
     }
     
     /**
-     * @param string $image
+     * @param string $src
      */
-    public function setImage(string $image)
+    public function setSrc(string $src)
     {
-        $this->image = $image;
+        $this->src = $src;
     }
     
     public function getArray()
     {
         return [
-            'image' => $this->image,
+            'src' => $this->src,
             'text' => $this->text
         ];
     }
@@ -56,7 +56,7 @@ class FloatLeft implements \Serializable
     {
         return serialize(
             [
-                $this->image,
+                $this->src,
                 $this->text
             ]
         );
@@ -65,7 +65,7 @@ class FloatLeft implements \Serializable
     public function unserialize($serialized)
     {
         list(
-            $this->image,
+            $this->src,
             $this->text
         ) = unserialize($serialized);
     }

@@ -1,25 +1,25 @@
 troubleticket:
     roles: [ROLE_USER]
-    href: /troubleticke
+    href: '#'
     text: TroubleTicket
     children: {  }
 comercial:
     roles: [ROLE_USER]
-    href: /comercial
+    href: '#'
     text: Comercial
     children: {  }
 engenharia:
     roles: [ROLE_USER]
-    href: /engenharia
+    href: '#'
     text: Engenharia
     children: {  }
 prevendas:
     roles: [ROLE_USER]
-    href: /prevendas
+    href: '#'
     text: Prevendas
     children: {  }
 autorizacao:
     roles: [ROLE_USER]
-    href: /autorizacao
+    href: '#'
     text: Autorizacao
     children: {  }

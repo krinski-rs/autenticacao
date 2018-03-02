@@ -9,10 +9,8 @@ class Icon implements \Serializable
     private $src    = NULL;
     private $text   = NULL;
         
-    public function __construct(int $left = 20, int $top = 20, string $href = '#', string $src = '', string $text = '')
+    public function __construct(string $href = '#', string $src = '', string $text = '')
     {
-        $this->left = $left;
-        $this->top  = $top;
         $this->href = $href;
         $this->src  = $src;
         $this->text = $text;

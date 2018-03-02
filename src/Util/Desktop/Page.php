@@ -3,28 +3,38 @@ namespace App\Util\Desktop;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use App\Util\Desktop\BarTop\BarTop;
+use App\Util\Traits\Regra\Permissao;
 
-class Page implements \Serializable
+abstract class Page implements \Serializable
 {
+    use Permissao;
+    
     private $objUserInterface   = NULL;
-    private $maxIcons           = NULL;
-    private $incrementLeft      = NULL;
-    private $incrementTop       = NULL;
-    private $title              = NULL;
-    private $arrayDoc           = NULL;
-    private $objDesktop         = NULL;
-    private $objBarTop          = NULL;
+    protected $title            = NULL;
+    protected $pathPage         = NULL;
+    protected $arrayDoc         = NULL;
+    protected $objDesktop       = NULL;
+    protected $objBarTop        = NULL;
 
-    public function __construct(UserInterface $objUserInterface, int $maxIcons = 10, int $incrementLeft = 20, int $incrementTop = 80, string $title = NULL)
+    public function __construct(UserInterface $objUserInterface, string $title, string $pathMenu, string $pathPage)
     {
         $this->objUserInterface = $objUserInterface;
-        $this->maxIcons         = $maxIcons;
-        $this->incrementLeft    = $incrementLeft;
-        $this->incrementTop     = $incrementTop;
         $this->title            = $title;
+        $this->pathPage         = $pathPage;
         $this->arrayDoc         = new \SplQueue();
         $this->objDesktop       = new Desktop($objUserInterface);
-        $this->objBarTop        = new BarTop($objUserInterface);
+        $this->objBarTop        = new BarTop($objUserInterface, $pathMenu);
+        $this->configure();
+    }
+
+    abstract protected function configure();
+    
+    /**
+     * @return string
+     */
+    public function getPathPage()
+    {
+        return $this->pathPage;
     }
     
     /**
@@ -33,30 +43,6 @@ class Page implements \Serializable
     public function getUserInterface():UserInterface
     {
         return $this->objUserInterface;
-    }
-
-    /**
-     * @return int
-     */
-    public function getMaxIcons():int
-    {
-        return $this->maxIcons;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIncrementLeft():int
-    {
-        return $this->incrementLeft;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIncrementTop():int
-    {
-        return $this->incrementTop;
     }
 
     /**
@@ -89,33 +75,6 @@ class Page implements \Serializable
     public function setUserInterface(UserInterface $objUserInterface):Page
     {
         $this->objUserInterface = $objUserInterface;
-        return $this;
-    }
-
-    /**
-     * @param int $maxIcons
-     */
-    public function setMaxIcons(int $maxIcons):Page
-    {
-        $this->maxIcons = $maxIcons;
-        return $this;
-    }
-
-    /**
-     * @param int $incrementLeft
-     */
-    public function setIncrementLeft(int $incrementLeft):Page
-    {
-        $this->incrementLeft = $incrementLeft;
-        return $this;
-    }
-
-    /**
-     * @param int $incrementTop
-     */
-    public function setIncrementTop(int $incrementTop):Page
-    {
-        $this->incrementTop = $incrementTop;
         return $this;
     }
 

@@ -1,7 +1,7 @@
 {% block float_left %}
 							<span class="float_left">
-{% if attribute(float_left, 'image') is defined %}
-								{{ float_left.image|raw }}
+{% if attribute(float_left, 'src') is defined %}
+								<img src="{{ asset(float_left.src) }}" />
 {% endif %}
 								{{ float_left.text|raw }}
 							</span>

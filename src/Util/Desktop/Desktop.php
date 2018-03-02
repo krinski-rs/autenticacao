@@ -5,13 +5,50 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class Desktop implements \Serializable
 {
-    private $arrayIcon = NULL;
-    private $arrayWindow = NULL;
+    const MAX_ICONS_LINE = 13;
+    private $arrayIcon          = NULL;
+    private $arrayWindow        = NULL;
+    private $incrementLeft      = NULL;
+    private $incrementTop       = NULL;
+    private $left               = 20;
+    private $top                = 20;
     
     public function __construct(UserInterface $objUserInterface)
     {
         $this->arrayIcon    = new \SplQueue();
         $this->arrayWindow  = new \SplQueue();
+    }
+    
+    /**
+     * @return integer
+     */
+    public function getIncrementLeft()
+    {
+        return $this->incrementLeft;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getIncrementTop()
+    {
+        return $this->incrementTop;
+    }
+
+    /**
+     * @param integer $incrementLeft
+     */
+    public function setIncrementLeft(int $incrementLeft)
+    {
+        $this->incrementLeft = $incrementLeft;
+    }
+
+    /**
+     * @param integer $incrementTop
+     */
+    public function setIncrementTop(int $incrementTop)
+    {
+        $this->incrementTop = $incrementTop;
     }
     
     /**
@@ -28,7 +65,16 @@ class Desktop implements \Serializable
      */
     public function addIcon(Icon $objIcon):Desktop
     {
+//         echo '(',$this->arrayIcon->count(),' % ', '5', ') =', ($this->arrayIcon->count() % 5);
+//         print_r($this->getArray());
+        $objIcon->setLeft($this->left);
+        $objIcon->setTop($this->top);
         $this->arrayIcon->add($this->arrayIcon->count(), $objIcon);
+        $this->left = ($this->left + $this->incrementLeft);
+        if(($this->arrayIcon->count() % self::MAX_ICONS_LINE) === 0){
+            $this->left = 20;
+            $this->top = ($this->top + $this->incrementTop);
+        }
         return $this;
     }
     
@@ -73,7 +119,11 @@ class Desktop implements \Serializable
         return serialize(
             [
                 $this->arrayIcon,
-                $this->arrayWindow
+                $this->arrayWindow,
+                $this->incrementLeft,
+                $this->incrementTop,
+                $this->left,
+                $this->top
             ]
         );
     }
@@ -82,7 +132,11 @@ class Desktop implements \Serializable
     {
         list(
             $this->arrayIcon,
-            $this->arrayWindow
+            $this->arrayWindow,
+            $this->incrementLeft,
+            $this->incrementTop,
+            $this->left,
+            $this->top
         ) = unserialize($serialized);
     }
 }
