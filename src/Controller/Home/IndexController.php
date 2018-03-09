@@ -3,23 +3,6 @@ namespace App\Controller\Home;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use App\Util\Desktop\BarTop\BarTop;
-use App\Util\Desktop\Desktop;
-use App\Util\Desktop\Icon;
-use App\Util\Desktop\Dock;
-use App\Util\Desktop\WindowTop;
-use App\Util\Desktop\FloatLeft;
-use App\Util\Desktop\FloatRight;
-use App\Util\Desktop\Window;
-use App\Util\Desktop\WindowContent;
-use App\Util\Desktop\Table\Table;
-use App\Util\Desktop\Table\Head;
-use App\Util\Desktop\Table\Tr;
-use App\Util\Desktop\Table\Th;
-use App\Util\Desktop\Table\Body;
-use App\Util\Desktop\Table\Td;
-use App\Util\Desktop\WindowInner;
-use App\Util\Desktop\Page;
 use App\Util\Paginas\Home;
 
 class IndexController extends Controller
@@ -59,7 +42,7 @@ class IndexController extends Controller
         }
         $pathMenu = $this->get('kernel')->getRootDir().'/../config/menu/menu.yaml';
         $pathPage = $this->get('kernel')->getRootDir().'/../config/page/home.yaml';
-        $objPage = new Home($this->getUser(), "Compra Ágil", $pathMenu, $pathPage);
+        $objHome = new Home($this->getUser(), "Compra Ágil", $pathMenu, $pathPage);
         
 //         $objPage->addDock($objDock1);
 //         $objPage->setDesktop($objDesktop);
@@ -158,6 +141,6 @@ class IndexController extends Controller
 //         $objDesktop->addWindow($objWindow);
         
         
-        return $this->render('base/base.html.twig',  $objPage->getArray());
+        return $this->render('home/index.html.twig',  $objHome->getArray());
     }
 }

@@ -1,0 +1,3 @@
+App\Entity\Redes\SwitchesLinksysSRW2024G4:
+    type: entity
+    lifecycleCallbacks: {  }

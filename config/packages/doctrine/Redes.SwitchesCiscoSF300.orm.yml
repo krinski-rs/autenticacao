@@ -1,0 +1,3 @@
+App\Entity\Redes\SwitchesCiscoSF300:
+    type: entity
+    lifecycleCallbacks: {  }

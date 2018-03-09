@@ -18,7 +18,6 @@ class Home extends Page
     {
         $this->objBarTop->createMenu();
         $arrayIcons  = Yaml::parseFile($this->pathPage);
-//         echo "<pre>";
         if(count($arrayIcons)){
             $this->objDesktop->setIncrementLeft(100);
             $this->objDesktop->setIncrementTop(80);
@@ -39,7 +38,7 @@ class Home extends Page
                     
                     $objWindow = new Window('window_'.$key);
                     
-                    $objWindowContent = new WindowContent();
+                    $objWindowContent = new WindowContent('Teste');
                     $objWindowInner = new WindowInner();
                     
                     $objWindowInner->setWindowTop($objWindowTop);

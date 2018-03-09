@@ -1,0 +1,3 @@
+App\Entity\Redes\SwitchesExtremeSummitX35048t:
+    type: entity
+    lifecycleCallbacks: {  }

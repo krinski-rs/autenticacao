@@ -1,0 +1,7 @@
+switch:
+    prefix: /switch
+    resource: './switch/routes.yaml'
+modelo_switch:
+    prefix: /modeloswitch
+    resource: './modeloswitch/routes.yaml'
+    

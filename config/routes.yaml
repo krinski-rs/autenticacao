@@ -1,18 +1,31 @@
 troubleticket:
     prefix: /api/troubleticket
     resource: './routes/troubleticket/routes.yaml'
+    
 comercial:
     prefix: /api/comercial
     resource: './routes/comercial/routes.yaml'
+    
+comercial_views:
+    prefix: /comercial
+    resource: './routes/comercial/views.yaml'
+        
 engenharia:
     prefix: /api/engenharia
     resource: './routes/engenharia/routes.yaml'
+    
 prevendas:
     prefix: /api/prevendas
     resource: './routes/prevendas/routes.yaml'
+    
 autorizacao:
     prefix: /api/autorizacao
     resource: './routes/autorizacao/routes.yaml'
+    
+redes:
+    prefix: /api/redes
+    resource: './routes/redes/routes.yaml'
+    
 home:
     prefix: /
     resource: './routes/home/routes.yaml'

@@ -1,0 +1,84 @@
+App\Entity\Redes\Switches:
+    type: entity
+    table: redes.switch
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: modelo_switch_id
+        type: integer
+    discriminatorMap:
+        1: App\Entity\Redes\SwitchesDatacom3224F2
+        2: App\Entity\Redes\SwitchesLinksysSRW2024
+        3: App\Entity\Redes\SwitchesLinksysSRW224G4
+        4: App\Entity\Redes\SwitchesMikrotik
+        5: App\Entity\Redes\SwitchesCiscoCatalyst2950
+        6: App\Entity\Redes\SwitchesCiscoSF300
+        7: App\Entity\Redes\SwitchesLinksysSRW2024G4
+        8: App\Entity\Redes\SwitchesExtremeSummit250e
+        9: App\Entity\Redes\SwitchesExtremeSummitX450a48t
+        10: App\Entity\Redes\SwitchesExtremeSummitX35024t
+        11: App\Entity\Redes\SwitchesExtremeSummitX35048t
+        12: App\Entity\Redes\SwitchesCiscoCatalyst2970
+        13: App\Entity\Redes\SwitchesDatacom3224F3
+    indexes:
+        IDX_3FA9BD9644E652A0:
+            columns:
+                - modelo_switch_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        nome:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        ip:
+            type: string
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        vlan:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        ativo:
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        dataCadastro:
+            type: datetime
+            nullable: false
+            options:
+                default: now()
+            column: data_cadastro
+    oneToMany:
+        porta:
+            targetEntity: App\Entity\Redes\Porta
+            cascade:
+                - persist
+                - merge
+                - remove
+            fetch: LAZY
+            mappedBy: switches
+    manyToOne:
+        modeloSwitch:
+            targetEntity: App\Entity\Redes\ModeloSwitch
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                modelo_switch_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

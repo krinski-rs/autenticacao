@@ -1,0 +1,3 @@
+App\Entity\Redes\SwitchesDatacom3224F3:
+    type: entity
+    lifecycleCallbacks: {  }

@@ -1,0 +1,13 @@
+comercial_home:
+    path: /
+    controller: 'App\Controller\Comercial\IndexController::home'
+    methods: [GET]
+    defaults:
+        _format: html
+        
+comercial_lpu_form:
+    path: /lpu
+    controller: 'App\Controller\Comercial\IndexController::lpu'
+    methods: [GET]
+    defaults:
+        _format: html
