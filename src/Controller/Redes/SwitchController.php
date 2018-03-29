@@ -30,6 +30,23 @@ class SwitchController extends Controller
         }
     }
     
+    public function postSwitchPorta(int $id, Request $objRequest)
+    {
+        try {
+            $objRedesSwitch = $this->get('redes.switch');
+            if(!$objRedesSwitch instanceof SwitchesService){
+                return new JsonResponse(['message'=> 'Class "App\Service\Redes\Switches not found."'], Response::HTTP_INTERNAL_SERVER_ERROR);
+            }
+            
+            $objPorta = $objRedesSwitch->postSwitchPorta($id, $objRequest);
+            return new JsonResponse(['id'=>$objPorta->getId()], Response::HTTP_OK);
+        } catch (\RuntimeException $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_PRECONDITION_FAILED);
+        } catch (\Exception $e) {
+            return new JsonResponse(['mensagem'=>$e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+    
     public function getSwitch(int $id)
     {
         $fractal = new Manager();

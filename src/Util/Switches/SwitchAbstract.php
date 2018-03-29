@@ -45,6 +45,9 @@ abstract class SwitchAbstract implements SwitchInterface
     /**
      * {@inheritDoc}
      * @see \App\Util\Switches\SwitchInterface::getAdminStatus()
+     * up(1)
+     * down(2)
+     * testing(3)   
      */
     public function getAdminStatus(): array
     {
@@ -93,6 +96,13 @@ abstract class SwitchAbstract implements SwitchInterface
     /**
      * {@inheritDoc}
      * @see \App\Util\Switches\SwitchInterface::getOperStatus()
+     * up(1)
+     * down(2)
+     * testing(3)
+     * unknown(4)
+     * dormant(5)
+     * notPresent(6)
+     * lowerLayerDown(7)
      */
     public function getOperStatus(): array
     {
@@ -109,6 +119,9 @@ abstract class SwitchAbstract implements SwitchInterface
     /**
      * {@inheritDoc}
      * @see \App\Util\Switches\SwitchInterface::getStatsDuplexStatus()
+     * 1-unknown
+     * 2-halfDuplex
+     * 3-fullDuplex
      */
     public function getStatsDuplexStatus(): array
     {
@@ -121,7 +134,101 @@ abstract class SwitchAbstract implements SwitchInterface
         
         return $arrayAlias;
     }
+    
+    /**
+     * {@inheritDoc}
+     * @see \App\Util\Switches\SwitchInterface::getVlanType()
+     * 1 : static
+     * 2 : dynamic
+     * 3 : multiVlan
 
+     */
+    public function getVlanType(): array
+    {
+        // TODO Auto-generated method stub
+        $arrayAlias = $this->objSNMP->walk('iso.3.6.1.4.1.9.9.68.1.2.2.1.1');
+        
+        if(!is_array($arrayAlias)){
+            $arrayAlias = [];
+        }
+        
+        return $arrayAlias;
+    }
+    
+    /**
+     * {@inheritDoc}
+     * @see \App\Util\Switches\SwitchInterface::getVmVlan()
+
+     */
+    public function getVmVlan(): array
+    {
+        // TODO Auto-generated method stub
+        $arrayAlias = $this->objSNMP->walk('iso.3.6.1.4.1.9.9.68.1.2.2.1.2');
+        
+        if(!is_array($arrayAlias)){
+            $arrayAlias = [];
+        }
+        
+        return $arrayAlias;
+    }
+    
+    /**
+     * {@inheritDoc}
+     * @see \App\Util\Switches\SwitchInterface::getVmPortStatus()
+     * 1 : inactive
+     * 2 : active
+     * 3 : shutdown
+
+     */
+    public function getVmPortStatus(): array
+    {
+        // TODO Auto-generated method stub
+        $arrayAlias = $this->objSNMP->walk('iso.3.6.1.4.1.9.9.68.1.2.2.1.3');
+        
+        if(!is_array($arrayAlias)){
+            $arrayAlias = [];
+        }
+        
+        return $arrayAlias;
+    }
+    
+    /**
+     * {@inheritDoc}
+     * @see \App\Util\Switches\SwitchInterface::getPortDuplex()
+     * 1 : half
+     * 2 : full
+     * 3 : disagree
+     * 4 : auto
+
+     */
+    public function getPortDuplex(): array
+    {
+        // TODO Auto-generated method stub
+        $arrayAlias = $this->objSNMP->walk('iso.3.6.1.4.1.9.5.1.4.1.1.10');
+        
+        if(!is_array($arrayAlias)){
+            $arrayAlias = [];
+        }
+        
+        return $arrayAlias;
+    }
+    
+    /**
+     * {@inheritDoc}
+     * @see \App\Util\Switches\SwitchInterface::getPortSpeed()
+     */
+    public function getPortSpeed(): array
+    {
+        // TODO Auto-generated method stub
+        $arrayAlias = $this->objSNMP->walk('iso.3.6.1.2.1.2.2.1.5');
+        
+        if(!is_array($arrayAlias)){
+            $arrayAlias = [];
+        }
+        
+        return $arrayAlias;
+    }
+    
     public function __destruct()
     {
         if($this->objSNMP instanceof \SNMP){

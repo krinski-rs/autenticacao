@@ -141,65 +141,65 @@ class Create
             switch ($objRequest->get('modeloSwitchId', NULL)){
                 case self::SWITCH_DATACOM_3224F2:
                     $this->objSwitches = new SwitchesDatacom3224F2();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
-                    $this->addPorta('GE', 25, 28, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 25, 28, $this->objSwitches);
                     break;
                 case self::SWITCH_LINKSYS_SRW2024:
                     $this->objSwitches = new SwitchesLinksysSRW2024();
-                    $this->addPorta('GE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 1, 24, $this->objSwitches);
                     break;
                 case self::SWITCH_LINKSYS_SRW224G4:
                     $this->objSwitches = new SwitchesLinksysSRW224G4();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
-                    $this->addPorta('GE', 1, 4, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 1, 4, $this->objSwitches);
                     break;
                 case self::SWITCH_MIKROTIK:
                     $this->objSwitches = new SwitchesMikrotik();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
                     break;
                 case self::SWITCH_CISCO_CATALYST2950:
                     $this->objSwitches = new SwitchesCiscoCatalyst2950();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
                     break;
                 case self::SWITCH_CISCO_SF300:
                     $this->objSwitches = new SwitchesCiscoSF300();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
-                    $this->addPorta('GE', 1, 4, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 1, 4, $this->objSwitches);
                     break;
                 case self::SWITCH_LINKSYS_SRW2024G4:
                     $this->objSwitches = new SwitchesLinksysSRW2024G4();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
-                    $this->addPorta('GE', 1, 4, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 1, 4, $this->objSwitches);
                     break;
                 case self::SWITCH_EXTREME_SUMMIT_250E:
                     $this->objSwitches = new SwitchesExtremeSummit250e();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
-                    $this->addPorta('GE', 25, 26, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 25, 26, $this->objSwitches);
                     break;
                 case self::SWITCH_EXTREME_SUMMIT_X450a48t:
                     $this->objSwitches = new SwitchesExtremeSummitX450a48t();
-                    $this->addPorta('GE', 1, 48, $this->objSwitches);
-                    $this->addPorta('10GE', 49, 50, $this->objSwitches);
+//                     $this->addPorta('GE', 1, 48, $this->objSwitches);
+//                     $this->addPorta('10GE', 49, 50, $this->objSwitches);
                     break;
                 case self::SWITCH_EXTREME_SUMMIT_X35024t:
                     $this->objSwitches = new SwitchesExtremeSummitX35024t();
-                    $this->addPorta('FE', 1, 20, $this->objSwitches);
-                    $this->addPorta('GE', 21, 24, $this->objSwitches);
-                    $this->addPorta('10GE', 25, 26, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 20, $this->objSwitches);
+//                     $this->addPorta('GE', 21, 24, $this->objSwitches);
+//                     $this->addPorta('10GE', 25, 26, $this->objSwitches);
                     break;
                 case self::SWITCH_EXTREME_SUMMIT_X35048t:
                     $this->objSwitches = new SwitchesExtremeSummitX35048t();
-                    $this->addPorta('GE', 1, 48, $this->objSwitches);
-                    $this->addPorta('10GE', 49, 50, $this->objSwitches);
+//                     $this->addPorta('GE', 1, 48, $this->objSwitches);
+//                     $this->addPorta('10GE', 49, 50, $this->objSwitches);
                     break;
                 case self::SWITCH_CISCO_CATALYST2970:
                     $this->objSwitches = new SwitchesCiscoCatalyst2970();
-                    $this->addPorta('GE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 1, 24, $this->objSwitches);
                     break;
                 case self::SWITCH_DATACOM_3224F3:
                     $this->objSwitches = new SwitchesDatacom3224F3();
-                    $this->addPorta('FE', 1, 24, $this->objSwitches);
-                    $this->addPorta('GE', 25, 28, $this->objSwitches);
+//                     $this->addPorta('FE', 1, 24, $this->objSwitches);
+//                     $this->addPorta('GE', 25, 28, $this->objSwitches);
                     break;
                 default:
                     throw new \RuntimeException('Modelo de switch não encontrado.');

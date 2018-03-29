@@ -29,7 +29,7 @@ abstract class Switches
      * @var int|null
      * @access private
      */
-    private $vlan;
+    private $vlanBase;
 
     /**
      * @var bool
@@ -55,10 +55,16 @@ abstract class Switches
      */
     private $porta;
     
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $vlan;
+    
     public function __construct()
     {
         $this->porta = new \Doctrine\Common\Collections\ArrayCollection();
         $this->dataCadastro = new \DateTime();
+        $this->vlan = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -118,31 +124,31 @@ abstract class Switches
     {
         return $this->ip;
     }
-
+    
     /**
-     * Set vlan.
+     * Set vlanBase.
      *
-     * @param int|null $vlan
+     * @param int|null $vlanBase
      *
      * @return Switches
      */
-    public function setVlan($vlan = null)
+    public function setVlanBase($vlanBase = null)
     {
-        $this->vlan = $vlan;
-
+        $this->vlanBase = $vlanBase;
+        
         return $this;
     }
-
+    
     /**
-     * Get vlan.
+     * Get vlanBase.
      *
      * @return int|null
      */
-    public function getVlan()
+    public function getVlanBase()
     {
-        return $this->vlan;
+        return $this->vlanBase;
     }
-
+    
     /**
      * Set ativo.
      *
@@ -247,5 +253,41 @@ abstract class Switches
     public function getPorta()
     {
         return $this->porta;
+    }
+    
+    /**
+     * Add vlan.
+     *
+     * @param \App\Entity\Redes\Vlan $vlan
+     *
+     * @return Switches
+     */
+    public function addVlan(\App\Entity\Redes\Vlan $vlan)
+    {
+        $this->vlan[] = $vlan;
+        
+        return $this;
+    }
+    
+    /**
+     * Remove vlan.
+     *
+     * @param \App\Entity\Redes\Vlan $vlan
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeVlan(\App\Entity\Redes\Vlan $vlan)
+    {
+        return $this->vlan->removeElement($vlan);
+    }
+    
+    /**
+     * Get vlan.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVlan()
+    {
+        return $this->vlan;
     }
 }

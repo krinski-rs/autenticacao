@@ -52,7 +52,7 @@ App\Entity\Redes\Porta:
         duplex:
             type: string
             nullable: false
-            length: 10
+            length: 13
             options:
                 fixed: false
         modo:

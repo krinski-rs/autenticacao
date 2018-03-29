@@ -10,4 +10,9 @@ interface SwitchInterface
     public function getStatsDuplexStatus(): array;
     public function backup():SwitchInterface;
     public function status(): array;
+    public function getVlanType(): array;
+    public function getVmVlan(): array;
+    public function getVmPortStatus(): array;
+    public function getPortDuplex(): array;
+    public function getPortSpeed(): array;
 }

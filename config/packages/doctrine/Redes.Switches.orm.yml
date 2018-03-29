@@ -45,11 +45,12 @@ App\Entity\Redes\Switches:
             length: null
             options:
                 fixed: false
-        vlan:
+        vlanBase:
             type: integer
             nullable: true
             options:
                 unsigned: false
+            column: vlan
         ativo:
             type: boolean
             nullable: false
@@ -64,6 +65,14 @@ App\Entity\Redes\Switches:
     oneToMany:
         porta:
             targetEntity: App\Entity\Redes\Porta
+            cascade:
+                - persist
+                - merge
+                - remove
+            fetch: LAZY
+            mappedBy: switches
+        vlan:
+            targetEntity: App\Entity\Redes\Vlan
             cascade:
                 - persist
                 - merge

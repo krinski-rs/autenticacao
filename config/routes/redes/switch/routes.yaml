@@ -66,3 +66,12 @@ put_switch_porta:
     requirements:
         id: '\d+'
         
+post_switch_porta:
+    path: /{id}/porta
+    controller: 'App\Controller\Redes\SwitchController::postSwitchPorta'
+    methods: [POST]
+    defaults:
+        _format: json
+    requirements:
+        id: '\d+'
+        
