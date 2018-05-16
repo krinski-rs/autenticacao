@@ -7,6 +7,8 @@ use Symfony\Component\Validator\Validation;
 use Doctrine\ORM\EntityManager;
 use App\Entity\Autorizacao\Usuario;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use App\Security\Users\RestUser;
+use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
 class Create
 {
@@ -27,8 +29,10 @@ class Create
             $this->objUsuario->setDataCadastro(new \DateTime());
             $this->objUsuario->setNome(trim($objRequest->get('nome', NULL)));
             $this->objUsuario->setSalt(uniqid(mt_rand()));
+            $objUserPasswordEncoder = new BCryptPasswordEncoder(12);
+            $password = $objUserPasswordEncoder->encodePassword(trim($objRequest->get('password', NULL)), $this->objUsuario->getSalt());
             
-            $password = $objUserPasswordEncoder->encodePassword($this->objUsuario, trim($objRequest->get('password', NULL)).$this->objUsuario->getSalt());
+//             $password = $objUserPasswordEncoder->encodePassword($this->objUsuario, trim($objRequest->get('password', NULL)).$this->objUsuario->getSalt());
             $this->objUsuario->setPassword($password);
             
             $this->objUsuario->setUsername(trim($objRequest->get('username', NULL)));

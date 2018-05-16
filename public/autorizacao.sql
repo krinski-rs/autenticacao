@@ -15,18 +15,18 @@ CREATE TABLE autorizacao.menu
         REFERENCES autorizacao.menu (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
-)
+);
 
 CREATE TABLE autorizacao.regra
 (
-    id seria NOT NULL,
+    id serial NOT NULL,
     nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT regras_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE autorizacao.usuario
 (
-    id seria NOT NULL,
+    id serial NOT NULL,
     nome character varying(255) COLLATE pg_catalog."default" NOT NULL,
     username character varying(50) COLLATE pg_catalog."default" NOT NULL,
     password character varying(100) COLLATE pg_catalog."default" NOT NULL,
@@ -43,11 +43,11 @@ CREATE TABLE autorizacao.usuario_regra
     id_regras integer NOT NULL,
     CONSTRAINT usuario_regra_pkey PRIMARY KEY (id_usuarios, id_regras),
     CONSTRAINT usuario_regra_regras_fkey FOREIGN KEY (id_regras)
-        REFERENCES autorizacao.regras (id) MATCH SIMPLE
+        REFERENCES autorizacao.regra (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT usuario_regra_usuarios_fkey FOREIGN KEY (id_usuarios)
-        REFERENCES autorizacao.usuarios (id) MATCH SIMPLE
+        REFERENCES autorizacao.usuario (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );

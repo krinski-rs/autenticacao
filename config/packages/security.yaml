@@ -13,6 +13,9 @@ security:
         App\Security\Users\FormUser:
             algorithm: bcrypt
             cost: 12        
+        App\Entity\Autorizacao\Usuario:
+            algorithm: bcrypt
+            cost: 12        
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

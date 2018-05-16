@@ -12,15 +12,14 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
 class FormAuthenticator extends AbstractFormLoginAuthenticator
 {
-    private $objUserPasswordEncoderInterface    = NULL;
     private $objRouterInterface                 = NULL;
     
-    public function __construct(RouterInterface $objRouterInterface, UserPasswordEncoderInterface $objUserPasswordEncoderInterface)
+    public function __construct(RouterInterface $objRouterInterface)
     {
-        $this->objUserPasswordEncoderInterface  = $objUserPasswordEncoderInterface;
         $this->objRouterInterface               = $objRouterInterface;
     }
     
@@ -50,9 +49,10 @@ class FormAuthenticator extends AbstractFormLoginAuthenticator
     
     public function checkCredentials($credentials, UserInterface $objUserInterface)
     {
-        $plainPassword = $credentials['password'];
+        $objUserPasswordEncoder = new BCryptPasswordEncoder(12);
+        $password = $objUserPasswordEncoder->encodePassword(trim($credentials['password']), $objUserInterface->getSalt());
         
-        if ($this->objUserPasswordEncoderInterface->isPasswordValid($objUserInterface, $plainPassword.$objUserInterface->getSalt())) {
+        if ($objUserPasswordEncoder->isPasswordValid($objUserInterface->getPassword(), trim( $credentials['password']), $objUserInterface->getSalt())) {
             return true;
         }
         throw new BadCredentialsException();

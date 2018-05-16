@@ -46,6 +46,7 @@ class RestUserProvider implements UserProviderInterface
         /*
          * buscar o usuario de onde estiver da forma que achar melhor
          */
+        
         $objUsuarios = $this->objRepository->loadUserByUsername($username);
         if($objUsuarios instanceof Usuario){
             $objRestUser = new RestUser();

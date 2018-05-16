@@ -9,6 +9,12 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Encoder\EncoderFactory;
+use App\Entity\Autorizacao\Usuario;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
+use App\Security\Users\RestUser;
+use App\Security\Users\FormUser;
+use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
 class RestAuthenticator extends AbstractGuardAuthenticator
 {
@@ -68,7 +74,10 @@ class RestAuthenticator extends AbstractGuardAuthenticator
 
     public function checkCredentials($credentials, UserInterface $objUserInterface)
     {
-        return ($objUserInterface->getPassword() == trim($credentials['password']));
+        $objUserPasswordEncoder = new BCryptPasswordEncoder(12);
+        $password = $objUserPasswordEncoder->encodePassword(trim($credentials['password']), $objUserInterface->getSalt());
+        
+        return $objUserPasswordEncoder->isPasswordValid($objUserInterface->getPassword(), trim($credentials['password']), $objUserInterface->getSalt());
     }
 }
 
