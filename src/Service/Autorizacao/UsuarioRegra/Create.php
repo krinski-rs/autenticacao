@@ -57,25 +57,25 @@ class Create
     
     private function validate(Request $objRequest)
     {
-        ini_set("display_errors", "on");
-//         include('functions.php');
-        $snmpwalk_rs=snmpwalk('189.45.61.60	', "stechtelecom","mib-2.47.1.2.1.1.2");
-        $rows=count($snmpwalk_rs);
+//         ini_set("display_errors", "on");
+// //         include('functions.php');
+//         $snmpwalk_rs=snmpwalk('189.45.61.60	', "stechtelecom","mib-2.47.1.2.1.1.2");
+//         $rows=count($snmpwalk_rs);
         
-        $x=0;
+//         $x=0;
         
-        while ($snmpwalk_rs && $x != $rows){
-            $vlanid_rs=split('n',$snmpwalk_rs[$x]);
-            $vlanid_rs=split('"',$vlanid_rs[1]);
-            $vlanid_rsfinal[$x]=$vlanid_rs[0];
-            $x++;
-        }
-        sort($vlanid_rsfinal);
-        $rows=count($vlanid_rsfinal);
+//         while ($snmpwalk_rs && $x != $rows){
+//             $vlanid_rs=split('n',$snmpwalk_rs[$x]);
+//             $vlanid_rs=split('"',$vlanid_rs[1]);
+//             $vlanid_rsfinal[$x]=$vlanid_rs[0];
+//             $x++;
+//         }
+//         sort($vlanid_rsfinal);
+//         $rows=count($vlanid_rsfinal);
         
-        for($x=0;$x<=$rows;$x++){
-            echo $vlanid_rsfinal[$x];
-            echo '</br>';
+//         for($x=0;$x<=$rows;$x++){
+//             echo $vlanid_rsfinal[$x];
+//             echo '</br>';
             //$flag_vlan_existe=0;
             //dbconnect('fast_airsw');
             //$sql_qry=mysql_query('SELECT DISTINCT idvlan, idportavlan FROM portasvlan WHERE idswitch = '.$switchid);
@@ -88,9 +88,9 @@ class Create
                 //	if ( $flag_vlan_nao_existe==0 ) mysql_query('DELETE FROM portasvlan WHERE idportavlan = "'.$sql_rs['idportavlan'].'"') or die (mysql_error());
                 //	}
                 //if ( $flag_vlan_existe==0 ) mysql_query('INSERT INTO portasvlan(idvlan,idswitch,nome) VALUES('.$vlanid_rs[1].','.$switchid.',"VLAN_'.$vlanid_rs[1].'")') or die (mysql_error());
-                $x++;
-            }
-        exit("\nTeste\n");
+//                 $x++;
+//             }
+//         exit("\nTeste\n");
         $objNotNull = new Assert\NotNull();
         $objNotNull->message = "Esse valor não deve ser nulo.";
         $objNotBlank = new Assert\NotBlank();
