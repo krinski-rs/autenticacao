@@ -1,4 +1,8 @@
 {% extends "base/base.html.twig" %}
 {% block javascripts %}
+		<script src="{{ asset('/js/jquery/treeview/jquery.tree.js') }}"></script>
 		<script src="{{ asset('js/home/default.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+		<link href="{{ asset('css/jquery/treeview/tree.css') }}" media="screen" rel="stylesheet" type="text/css"/>
 {% endblock %}

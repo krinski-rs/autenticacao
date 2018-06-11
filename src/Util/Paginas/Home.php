@@ -38,7 +38,50 @@ class Home extends Page
                     
                     $objWindow = new Window('window_'.$key);
                     
-                    $objWindowContent = new WindowContent('Teste');
+                    $objWindowContent = new WindowContent('<div class=\'treeview\'>
+      <ul>
+        <li>
+          <div><span class="name">Food</span></div>
+          <ul>
+            <li>
+              <div><span class="name">Juice</span></div>
+              <ul>
+                <li>
+                  <div><span class="name">Apple</span></div>
+                </li>
+                <li>
+                  <div><span class="name">Orange</span></div>
+                </li>
+                <li>
+                  <div><span class="name">Strawberry</span></div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div><span class="name">Meat</span></div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div><span class="name">Car</span></div>
+          <ul>
+            <li>
+              <div><span class="name">Big</span></div>
+              <ul>
+                <li>
+                  <div><span class="name">Huge</span></div>
+                  <ul>
+                    <li>
+                      <div><span class="name">Big-foot</span></div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>');
                     $objWindowInner = new WindowInner();
                     
                     $objWindowInner->setWindowTop($objWindowTop);

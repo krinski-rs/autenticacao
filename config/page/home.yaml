@@ -5,16 +5,10 @@ comercial_lpu:
     image_window: 'css/jquery/desktop/images/icons/icon_16_folder.png'
     name: 'Lista de LPU'
     
-pessoa_insert:
+pessoa:
     roles: [PESSOAS_INSERT]
     image_icon: 'css/jquery/desktop/images/icons/icon_32_customer.png'
     image_doc: 'css/jquery/desktop/images/icons/icon_22_customer.png'
     image_window: 'css/jquery/desktop/images/icons/icon_16_customer.png'
     name: 'Adicionar Pessoa'
-pessoa_list:
-    roles: [PESSOAS_VIEW]
-    image_icon: 'css/jquery/desktop/images/icons/icon_32_customer.png'
-    image_doc: 'css/jquery/desktop/images/icons/icon_22_customer.png'
-    image_window: 'css/jquery/desktop/images/icons/icon_16_customer.png'
-    name: 'Listagem de Pessoa'
         
